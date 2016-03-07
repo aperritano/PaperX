@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10158" systemVersion="15E56a" minimumToolsVersion="Automatic">
+    <entity name="PaperEntry" representedClassName=".PaperEntry" syncable="YES">
+        <attribute name="abstract" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="acmid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="author" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="booktitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="doi" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inproceeding" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isbn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isLiked" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isRead" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="keywords" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_modified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numpages" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pages" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publisher" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="series" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="papers" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Session" representedClassName=".Session" syncable="YES">
+        <attribute name="last_modified" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="papers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PaperEntry" inverseName="parent" inverseEntity="PaperEntry" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PaperEntry" positionX="259" positionY="54" width="128" height="360"/>
+        <element name="Session" positionX="-54" positionY="18" width="128" height="103"/>
+    </elements>
+</model>

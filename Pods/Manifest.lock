@@ -1,0 +1,12 @@
+PODS:
+  - RandomKit (1.6.0)
+
+DEPENDENCIES:
+  - RandomKit (~> 1.6.0)
+
+SPEC CHECKSUMS:
+  RandomKit: 9b33ce5fc448056e8ddaaef655da315b26f23e32
+
+PODFILE CHECKSUM: e1afbcc697af076490a2f0d77962f050329fe10d
+
+COCOAPODS: 1.0.0.beta.3

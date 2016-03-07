@@ -1,0 +1,6 @@
+framework module Pods_PaperX {
+  umbrella header "Pods-PaperX-umbrella.h"
+
+  export *
+  module * { export * }
+}
