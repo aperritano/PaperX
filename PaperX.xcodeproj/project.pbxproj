@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7023C0061C95DBF900D63D95 /* PaperEntry+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7023C0051C95DBF900D63D95 /* PaperEntry+Helper.swift */; };
+		7023C0091C95EAE700D63D95 /* RISFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7023C0081C95EAE700D63D95 /* RISFileParser.swift */; };
+		703D64D11C98BFE100BF4FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703D64D01C98BFE100BF4FDD /* AppDelegate.swift */; };
+		703D64D31C98BFE100BF4FDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703D64D21C98BFE100BF4FDD /* ViewController.swift */; };
+		703D64D61C98BFE100BF4FDD /* PaperXOSX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 703D64D41C98BFE100BF4FDD /* PaperXOSX.xcdatamodeld */; };
+		703D64D81C98BFE100BF4FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 703D64D71C98BFE100BF4FDD /* Assets.xcassets */; };
+		703D64DB1C98BFE100BF4FDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 703D64D91C98BFE100BF4FDD /* Main.storyboard */; };
+		703D64E01C98C08000BF4FDD /* PaperX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7072FD941C8941BB0035C06F /* PaperX.xcdatamodeld */; };
+		703D64E11C98C0C500BF4FDD /* PaperEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DB0E21C8D020C0056500A /* PaperEntry+CoreDataProperties.swift */; };
+		703D64E21C98C0C500BF4FDD /* PaperEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DB0E31C8D020C0056500A /* PaperEntry.swift */; };
+		703D64E31C98C0C500BF4FDD /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DB0E41C8D020C0056500A /* Session+CoreDataProperties.swift */; };
+		703D64E41C98C0C500BF4FDD /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DB0E51C8D020C0056500A /* Session.swift */; };
+		703D64E51C98C0C500BF4FDD /* PaperEntry+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7023C0051C95DBF900D63D95 /* PaperEntry+Helper.swift */; };
+		703D64E61C98C0D500BF4FDD /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70804CA61C8BD0F400FBD0A1 /* DataController.swift */; };
 		703DB0D51C8CBB2B0056500A /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DB0D41C8CBB2B0056500A /* CoreDataTableViewController.swift */; };
 		703DB0E61C8D020C0056500A /* PaperEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DB0E21C8D020C0056500A /* PaperEntry+CoreDataProperties.swift */; };
 		703DB0E71C8D020C0056500A /* PaperEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DB0E31C8D020C0056500A /* PaperEntry.swift */; };
@@ -23,11 +37,22 @@
 		70804CA71C8BD0F400FBD0A1 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70804CA61C8BD0F400FBD0A1 /* DataController.swift */; };
 		7098AF851C8A1FF6000DC290 /* SessionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7098AF841C8A1FF6000DC290 /* SessionsTableViewController.swift */; };
 		7098AF871C8A2053000DC290 /* DataStoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7098AF861C8A2053000DC290 /* DataStoreController.swift */; };
+		709D881B1C8D1AD900952909 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709D881A1C8D1AD900952909 /* CloudKit.framework */; };
+		70E389481C94F755008F14AC /* example.ris in Resources */ = {isa = PBXBuildFile; fileRef = 70E389471C94F755008F14AC /* example.ris */; };
 		D0D63E891C7DCDA889ECF272 /* Pods_PaperX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E2F56334B28F964DE78EE /* Pods_PaperX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5C094413951DABABF13AD6B7 /* Pods-PaperX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaperX/Pods-PaperX.debug.xcconfig"; sourceTree = "<group>"; };
+		7023C0051C95DBF900D63D95 /* PaperEntry+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaperEntry+Helper.swift"; sourceTree = "<group>"; };
+		7023C0081C95EAE700D63D95 /* RISFileParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RISFileParser.swift; sourceTree = "<group>"; };
+		703D64CE1C98BFE100BF4FDD /* PaperXOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaperXOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		703D64D01C98BFE100BF4FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		703D64D21C98BFE100BF4FDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		703D64D51C98BFE100BF4FDD /* PaperXOSX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PaperXOSX.xcdatamodel; sourceTree = "<group>"; };
+		703D64D71C98BFE100BF4FDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		703D64DA1C98BFE100BF4FDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		703D64DC1C98BFE100BF4FDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		703DB0D41C8CBB2B0056500A /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		703DB0E21C8D020C0056500A /* PaperEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaperEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		703DB0E31C8D020C0056500A /* PaperEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaperEntry.swift; sourceTree = "<group>"; };
@@ -46,16 +71,28 @@
 		70804CA61C8BD0F400FBD0A1 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = core_data/DataController.swift; sourceTree = "<group>"; };
 		7098AF841C8A1FF6000DC290 /* SessionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsTableViewController.swift; sourceTree = "<group>"; };
 		7098AF861C8A2053000DC290 /* DataStoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreController.swift; sourceTree = "<group>"; };
+		709D88191C8D1ACD00952909 /* PaperX.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PaperX.entitlements; sourceTree = "<group>"; };
+		709D881A1C8D1AD900952909 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		70E389471C94F755008F14AC /* example.ris */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.ris; sourceTree = "<group>"; };
+		70E3894A1C94F9D4008F14AC /* TestFilePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestFilePlayground.playground; sourceTree = "<group>"; };
 		82A6CEB2D3F6E413C9AD87F1 /* Pods-PaperX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperX.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaperX/Pods-PaperX.release.xcconfig"; sourceTree = "<group>"; };
 		AA1E2F56334B28F964DE78EE /* Pods_PaperX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaperX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		703D64CB1C98BFE100BF4FDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7072FD871C8941BB0035C06F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D0D63E891C7DCDA889ECF272 /* Pods_PaperX.framework in Frameworks */,
+				709D881B1C8D1AD900952909 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,9 +111,50 @@
 		210F3E95DA5E22C48CE73039 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				709D881A1C8D1AD900952909 /* CloudKit.framework */,
 				AA1E2F56334B28F964DE78EE /* Pods_PaperX.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7023C0071C95EAB600D63D95 /* file_parsing */ = {
+			isa = PBXGroup;
+			children = (
+				7023C0081C95EAE700D63D95 /* RISFileParser.swift */,
+			);
+			name = file_parsing;
+			sourceTree = "<group>";
+		};
+		702E080E1C97AA68009962E7 /* archive */ = {
+			isa = PBXGroup;
+			children = (
+				7055466A1C8A5CE3000D007A /* CoreDataStackManager.swift */,
+				7098AF861C8A2053000DC290 /* DataStoreController.swift */,
+				70804C831C8B1D3800FBD0A1 /* HeroListController.swift */,
+			);
+			name = archive;
+			sourceTree = "<group>";
+		};
+		702E080F1C97AA92009962E7 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				709D88191C8D1ACD00952909 /* PaperX.entitlements */,
+				7072FD9C1C8941BB0035C06F /* Info.plist */,
+			);
+			name = support;
+			sourceTree = "<group>";
+		};
+		703D64CF1C98BFE100BF4FDD /* PaperXOSX */ = {
+			isa = PBXGroup;
+			children = (
+				703D64D01C98BFE100BF4FDD /* AppDelegate.swift */,
+				703D64D21C98BFE100BF4FDD /* ViewController.swift */,
+				703D64D71C98BFE100BF4FDD /* Assets.xcassets */,
+				703D64D91C98BFE100BF4FDD /* Main.storyboard */,
+				703D64DC1C98BFE100BF4FDD /* Info.plist */,
+				703D64D41C98BFE100BF4FDD /* PaperXOSX.xcdatamodeld */,
+			);
+			path = PaperXOSX;
 			sourceTree = "<group>";
 		};
 		703DB0D11C8CB6E20056500A /* core_data_entity */ = {
@@ -86,6 +164,7 @@
 				703DB0E31C8D020C0056500A /* PaperEntry.swift */,
 				703DB0E41C8D020C0056500A /* Session+CoreDataProperties.swift */,
 				703DB0E51C8D020C0056500A /* Session.swift */,
+				7023C0051C95DBF900D63D95 /* PaperEntry+Helper.swift */,
 			);
 			name = core_data_entity;
 			sourceTree = "<group>";
@@ -94,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				7072FD8C1C8941BB0035C06F /* PaperX */,
+				703D64CF1C98BFE100BF4FDD /* PaperXOSX */,
 				7072FD8B1C8941BB0035C06F /* Products */,
 				1A07D6AB264A7A112647C6BE /* Pods */,
 				210F3E95DA5E22C48CE73039 /* Frameworks */,
@@ -104,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				7072FD8A1C8941BB0035C06F /* PaperX.app */,
+				703D64CE1C98BFE100BF4FDD /* PaperXOSX.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -111,16 +192,19 @@
 		7072FD8C1C8941BB0035C06F /* PaperX */ = {
 			isa = PBXGroup;
 			children = (
+				702E080E1C97AA68009962E7 /* archive */,
+				7023C0071C95EAB600D63D95 /* file_parsing */,
 				703DB0D11C8CB6E20056500A /* core_data_entity */,
 				7072FDAA1C894A2D0035C06F /* core_data_management */,
 				7072FD8D1C8941BB0035C06F /* AppDelegate.swift */,
 				7072FD8F1C8941BB0035C06F /* SessionDetailsViewController.swift */,
 				7098AF841C8A1FF6000DC290 /* SessionsTableViewController.swift */,
-				70804C831C8B1D3800FBD0A1 /* HeroListController.swift */,
+				70E389471C94F755008F14AC /* example.ris */,
 				7072FD971C8941BB0035C06F /* Assets.xcassets */,
 				7072FD911C8941BB0035C06F /* Main.storyboard */,
 				7072FD991C8941BB0035C06F /* LaunchScreen.storyboard */,
-				7072FD9C1C8941BB0035C06F /* Info.plist */,
+				70E3894A1C94F9D4008F14AC /* TestFilePlayground.playground */,
+				702E080F1C97AA92009962E7 /* support */,
 				7072FD941C8941BB0035C06F /* PaperX.xcdatamodeld */,
 			);
 			path = PaperX;
@@ -129,8 +213,6 @@
 		7072FDAA1C894A2D0035C06F /* core_data_management */ = {
 			isa = PBXGroup;
 			children = (
-				7055466A1C8A5CE3000D007A /* CoreDataStackManager.swift */,
-				7098AF861C8A2053000DC290 /* DataStoreController.swift */,
 				70804CA61C8BD0F400FBD0A1 /* DataController.swift */,
 				703DB0D41C8CBB2B0056500A /* CoreDataTableViewController.swift */,
 			);
@@ -140,6 +222,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		703D64CD1C98BFE100BF4FDD /* PaperXOSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 703D64DF1C98BFE100BF4FDD /* Build configuration list for PBXNativeTarget "PaperXOSX" */;
+			buildPhases = (
+				703D64CA1C98BFE100BF4FDD /* Sources */,
+				703D64CB1C98BFE100BF4FDD /* Frameworks */,
+				703D64CC1C98BFE100BF4FDD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PaperXOSX;
+			productName = PaperXOSX;
+			productReference = 703D64CE1C98BFE100BF4FDD /* PaperXOSX.app */;
+			productType = "com.apple.product-type.application";
+		};
 		7072FD891C8941BB0035C06F /* PaperX */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7072FD9F1C8941BB0035C06F /* Build configuration list for PBXNativeTarget "PaperX" */;
@@ -170,8 +269,23 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = so.raven;
 				TargetAttributes = {
+					703D64CD1C98BFE100BF4FDD = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					7072FD891C8941BB0035C06F = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = CN8G286W67;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -189,16 +303,27 @@
 			projectRoot = "";
 			targets = (
 				7072FD891C8941BB0035C06F /* PaperX */,
+				703D64CD1C98BFE100BF4FDD /* PaperXOSX */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		703D64CC1C98BFE100BF4FDD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				703D64D81C98BFE100BF4FDD /* Assets.xcassets in Resources */,
+				703D64DB1C98BFE100BF4FDD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7072FD881C8941BB0035C06F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7072FD9B1C8941BB0035C06F /* LaunchScreen.storyboard in Resources */,
+				70E389481C94F755008F14AC /* example.ris in Resources */,
 				7072FD981C8941BB0035C06F /* Assets.xcassets in Resources */,
 				7072FD931C8941BB0035C06F /* Main.storyboard in Resources */,
 			);
@@ -255,6 +380,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		703D64CA1C98BFE100BF4FDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				703D64D31C98BFE100BF4FDD /* ViewController.swift in Sources */,
+				703D64E21C98C0C500BF4FDD /* PaperEntry.swift in Sources */,
+				703D64D61C98BFE100BF4FDD /* PaperXOSX.xcdatamodeld in Sources */,
+				703D64E11C98C0C500BF4FDD /* PaperEntry+CoreDataProperties.swift in Sources */,
+				703D64E41C98C0C500BF4FDD /* Session.swift in Sources */,
+				703D64E61C98C0D500BF4FDD /* DataController.swift in Sources */,
+				703D64D11C98BFE100BF4FDD /* AppDelegate.swift in Sources */,
+				703D64E51C98C0C500BF4FDD /* PaperEntry+Helper.swift in Sources */,
+				703D64E01C98C08000BF4FDD /* PaperX.xcdatamodeld in Sources */,
+				703D64E31C98C0C500BF4FDD /* Session+CoreDataProperties.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7072FD861C8941BB0035C06F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -266,18 +408,28 @@
 				7098AF851C8A1FF6000DC290 /* SessionsTableViewController.swift in Sources */,
 				7055466B1C8A5CE3000D007A /* CoreDataStackManager.swift in Sources */,
 				7098AF871C8A2053000DC290 /* DataStoreController.swift in Sources */,
+				7023C0091C95EAE700D63D95 /* RISFileParser.swift in Sources */,
 				703DB0E91C8D020C0056500A /* Session.swift in Sources */,
 				7072FD8E1C8941BB0035C06F /* AppDelegate.swift in Sources */,
 				703DB0E61C8D020C0056500A /* PaperEntry+CoreDataProperties.swift in Sources */,
 				703DB0E71C8D020C0056500A /* PaperEntry.swift in Sources */,
 				703DB0D51C8CBB2B0056500A /* CoreDataTableViewController.swift in Sources */,
 				70804CA71C8BD0F400FBD0A1 /* DataController.swift in Sources */,
+				7023C0061C95DBF900D63D95 /* PaperEntry+Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		703D64D91C98BFE100BF4FDD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				703D64DA1C98BFE100BF4FDD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		7072FD911C8941BB0035C06F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -297,6 +449,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		703D64DD1C98BFE100BF4FDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PaperXOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = so.raven.PaperXOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		703D64DE1C98BFE100BF4FDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PaperXOSX/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = so.raven.PaperXOSX;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		7072FD9D1C8941BB0035C06F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -387,6 +569,7 @@
 			baseConfigurationReference = 5C094413951DABABF13AD6B7 /* Pods-PaperX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PaperX/PaperX.entitlements;
 				INFOPLIST_FILE = PaperX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = so.raven.PaperX;
@@ -399,6 +582,7 @@
 			baseConfigurationReference = 82A6CEB2D3F6E413C9AD87F1 /* Pods-PaperX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PaperX/PaperX.entitlements;
 				INFOPLIST_FILE = PaperX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = so.raven.PaperX;
@@ -409,6 +593,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		703D64DF1C98BFE100BF4FDD /* Build configuration list for PBXNativeTarget "PaperXOSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				703D64DD1C98BFE100BF4FDD /* Debug */,
+				703D64DE1C98BFE100BF4FDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7072FD851C8941BB0035C06F /* Build configuration list for PBXProject "PaperX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -430,6 +622,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		703D64D41C98BFE100BF4FDD /* PaperXOSX.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				703D64D51C98BFE100BF4FDD /* PaperXOSX.xcdatamodel */,
+			);
+			currentVersion = 703D64D51C98BFE100BF4FDD /* PaperXOSX.xcdatamodel */;
+			path = PaperXOSX.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		7072FD941C8941BB0035C06F /* PaperX.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

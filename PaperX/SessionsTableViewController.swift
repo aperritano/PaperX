@@ -9,14 +9,25 @@
 import Foundation
 import UIKit
 import CoreData
+import CloudKit
+import MobileCoreServices
 
-class SessionsTableController: CoreDataTableViewController {
+class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDelegate {
 
 
+    let database = CKContainer.defaultContainer().privateCloudDatabase
+    let recordType = "MyCar"
+    let maker = "carmaker"
+    let model = "Some model name"
+    
+    let subscriptionId = "MySubscriptionIdentifier"
+    let backgroundTaskName = "saveNewCar"
+    /* The background task identifier for the task that will save our record in the database when our app goes to the background */
+    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    
+    
     // Mark: - Properties
     // 2
-    
-    
     override func initializeFetchedResultsController() {
         let fetchRequest = NSFetchRequest()
         
@@ -26,12 +37,12 @@ class SessionsTableController: CoreDataTableViewController {
         fetchRequest.fetchBatchSize = 20
 
         
-        var sectionKey: String!
+//        var sectionKey: String!
         
         let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
         let sortDescriptors = NSArray(objects: sortDescriptor1)
         fetchRequest.sortDescriptors = sortDescriptors as? [NSSortDescriptor]
-        sectionKey = "title"
+//        sectionKey = "title"
         
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         self.fetchedResultsController.delegate = self
@@ -53,6 +64,7 @@ class SessionsTableController: CoreDataTableViewController {
         return cell
     }
     
+ 
     // MARK: - UITableViewDataSource
     
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
@@ -69,12 +81,42 @@ class SessionsTableController: CoreDataTableViewController {
         }
     }
     
+    //Mark: - UIDocumentPickerDelegate
+    
+    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
+        //print("document picker \(url)")
+        
+        let filename = url.URLByDeletingPathExtension?.lastPathComponent
+        
+        //let filename = fileURL.URLByDeletingPathExtension?.lastPathComponent
+//        let ext = url.pathExtension
+//        print(filename)
+//        print(ext)
+        
+     
+    
+        
+        
+        //test read
+        //let filePath = NSBundle.mainBundle().pathForResource("example", ofType: "ris")
+        
+        let items = RISFileParser.readFile(url.path!)
+        
+//        print(url.path)
+        
+        //test read
+        
+        self.dataController?.saveResults(filename!, results: items)
+        //parse document
+    }
+    
     @IBAction func addSessionObj(sender: AnyObject) {
             print("added session")
         let session = dataController!.createSession()
         
         session.setValue(String.random(10, "A"..."z"), forKey: "title")
         session.setValue(NSDate(), forKey:"last_modified")
+        session.uuid = NSUUID().UUIDString
         //session.papers = Set<PaperEntry>()
     
     
@@ -92,6 +134,24 @@ class SessionsTableController: CoreDataTableViewController {
         
     }
     
+    @IBAction func addChooseObj(sender: AnyObject) {
+        print("choose object")
+        
+        
+        let documentUTIs: NSArray = [ kUTTypePlainText,  kUTTypeText , kUTTypeContent ]
+        
+//        kUTTypeXML, kUTTypeLog, kUTTypePDF, kUTTypeItem, kUTTypeFileURL, kUTTypeJSON ]
+
+        
+        let documentPickerController = UIDocumentPickerViewController(documentTypes: documentUTIs as! [String], inMode: .Import)
+        documentPickerController.delegate = self
+
+        
+        presentViewController(documentPickerController, animated: true, completion: nil)
+        
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         let sessionDetailVC = segue.destinationViewController as! SessionDetailsViewController
@@ -106,10 +166,73 @@ class SessionsTableController: CoreDataTableViewController {
 //        secondVC.selectedCollege = colleges[index]
     }
     
+    
+    func subscription() -> CKSubscription{
+        let predicate = NSPredicate(format: "maker == %@", maker)
+        let subscription = CKSubscription(recordType: recordType, predicate: predicate,subscriptionID: subscriptionId,options: .FiresOnRecordCreation)
+        let notificationInfo = CKNotificationInfo()
+        notificationInfo.alertLocalizationKey = "creationAlertBodyKey"
+        
+        notificationInfo.shouldBadge = false
+        notificationInfo.desiredKeys = ["model"]
+        notificationInfo.alertActionLocalizationKey = "creationAlertActionKey"
+        subscription.notificationInfo = notificationInfo
+        return subscription
+    }
+
+    
     override func viewDidLoad() {
-        super.viewDidLoad()    
+        super.viewDidLoad()
+        
+        
+        /* Store information about a Volvo V50 car */
+        let volvoV50 = CKRecord(recordType: "Car")
+        volvoV50.setObject("Volvo", forKey: "maker")
+        volvoV50.setObject("V50", forKey: "model")
+        volvoV50.setObject(5, forKey: "numberOfDoors")
+        volvoV50.setObject(2015, forKey: "year")
+        
+        /* Save this record publicly */
+        
+        
+        database.saveRecord(volvoV50, completionHandler: { (record, error) -> Void in
+            if (error != nil) {
+                print(error)
+            } else {
+                NSLog("Saved in cloudkit")
+                
+            }
+        })
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
     
+    func appCameToForeground(notification: NSNotification){
+        print("Application came to the foreground")
+        if self.backgroundTaskIdentifier != UIBackgroundTaskInvalid {
+            print("We need to invalidate our background task")
+            UIApplication.sharedApplication().endBackgroundTask(
+            self.backgroundTaskIdentifier)
+            self.backgroundTaskIdentifier = UIBackgroundTaskInvalid
+        }
+    }
+    
+    func goAheadAfterPushNotificationRegistration(notification: NSNotification!){
+        print("We are asked to proceed because notifications are registered...")
+        print("Trying to find the subscription...")
+
+    }
+    
+
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
+        
+       
+    }
+
   
 }

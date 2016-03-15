@@ -58,7 +58,24 @@ class DataController: NSObject {
 //        let newConfiguration = NSManagedObject(entity: configurationEntityDescription!, insertIntoManagedObjectContext: managedObjectContext)
 //        return newConfiguration as! Configuration
 //    }
-//    
+    
+    func saveResults(title:String, results:[[String:AnyObject]]) {
+        let session = self.createSession()
+        session.setValue(title, forKey: "title")
+        session.setValue(NSDate(), forKey:"last_modified")
+        session.uuid = NSUUID().UUIDString
+        
+        var risEntries = Set<PaperEntry>()
+        
+        for risEntry in results {
+            let pe = self.createPaperEntry()
+            pe.populateEndnote(risEntry)
+            risEntries.insert(pe)
+        }
+        
+        session.papers = risEntries
+        self.saveContext()
+    }
     func createSession() -> Session {
         let sessionEntityDescription = NSEntityDescription.entityForName("Session", inManagedObjectContext: managedObjectContext)
         let newSession = NSManagedObject(entity: sessionEntityDescription!, insertIntoManagedObjectContext: managedObjectContext)

@@ -27,12 +27,12 @@ class SessionDetailsViewController: CoreDataTableViewController {
         fetchRequest.fetchBatchSize = 20
         
         
-        var sectionKey: String!
+//        var sectionKey: String!
         
         let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
         let sortDescriptors = NSArray(objects: sortDescriptor1)
         fetchRequest.sortDescriptors = sortDescriptors as? [NSSortDescriptor]
-        sectionKey = "title"
+//        sectionKey = "title"
         
         self.fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         self.fetchedResultsController.delegate = self
@@ -43,7 +43,7 @@ class SessionDetailsViewController: CoreDataTableViewController {
             fatalError("Failed to initialize FetchedResultsController: \(error)")
         }
     }
-    
+ 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "papersCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
@@ -57,8 +57,14 @@ class SessionDetailsViewController: CoreDataTableViewController {
     // MARK: - UITableViewDataSource
     
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        let aHero = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
-        cell.textLabel?.text = aHero.valueForKey("title") as! String!
+        let paperEntry = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
+        
+    
+        
+        cell.textLabel?.text = paperEntry.valueForKey("title") as! String!
+        
+        let authors = paperEntry.valueForKey("authors") as! [String]
+        cell.detailTextLabel?.text = authors.joinWithSeparator(",")
         
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.LongStyle

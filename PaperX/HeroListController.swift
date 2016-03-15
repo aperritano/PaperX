@@ -36,12 +36,12 @@ class HeroListController: UITableViewController, NSFetchedResultsControllerDeleg
             
             
             
-            var sectionKey: String!
+//            var sectionKey: String!
             
                 let sortDescriptor1 = NSSortDescriptor(key: "title", ascending: true)
                 let sortDescriptors = NSArray(objects: sortDescriptor1)
                 fetchRequest.sortDescriptors = sortDescriptors as? [NSSortDescriptor]
-                sectionKey = "title"
+//                sectionKey = "title"
             
             let aFetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
             aFetchResultsController.delegate = self
@@ -84,8 +84,8 @@ class HeroListController: UITableViewController, NSFetchedResultsControllerDeleg
             try self.fetchedResultsController.performFetch()
             
         } catch let nserror as NSError {
-            let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
-            let message = NSLocalizedString("Error was : \(nserror.description), quitting", comment: "Error was : \(nserror.description), quitting")
+            _ = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
+            _ = NSLocalizedString("Error was : \(nserror.description), quitting", comment: "Error was : \(nserror.description), quitting")
             showAlertWithCompletion("title", message:"message", buttonTitle:"Aw nuts", completion:{_ in exit(-1)})
         }
         
@@ -194,7 +194,7 @@ class HeroListController: UITableViewController, NSFetchedResultsControllerDeleg
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         //Selet the TabBar button
-        let defaults = NSUserDefaults.standardUserDefaults()
+        _ = NSUserDefaults.standardUserDefaults()
         
         //
         self.navigationItem.rightBarButtonItem = self.addButton
@@ -203,7 +203,7 @@ class HeroListController: UITableViewController, NSFetchedResultsControllerDeleg
         var error: NSError?
         do {
             try fetchedResultsController.performFetch()
-        } catch var error1 as NSError {
+        } catch let error1 as NSError {
             error = error1
             let title = NSLocalizedString("Error Saving Entity", comment: "Error Saving Entity")
             let message = NSLocalizedString("Error was : \(error?.description), quitting",

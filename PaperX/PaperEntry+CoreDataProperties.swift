@@ -2,7 +2,7 @@
 //  PaperEntry+CoreDataProperties.swift
 //  PaperX
 //
-//  Created by Anthony Perritano on 3/6/16.
+//  Created by Anthony Perritano on 3/13/16.
 //  Copyright © 2016 so.raven. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,11 +17,13 @@ extension PaperEntry {
     @NSManaged var abstract: String?
     @NSManaged var acmid: String?
     @NSManaged var address: String?
-    @NSManaged var author: String?
+    @NSManaged var authors: NSObject?
     @NSManaged var booktitle: String?
     @NSManaged var doi: String?
     @NSManaged var inproceeding: String?
     @NSManaged var isbn: String?
+    @NSManaged var isLiked: NSNumber?
+    @NSManaged var isRead: NSNumber?
     @NSManaged var keywords: String?
     @NSManaged var last_modified: NSDate?
     @NSManaged var location: String?
@@ -32,8 +34,14 @@ extension PaperEntry {
     @NSManaged var title: String?
     @NSManaged var url: String?
     @NSManaged var year: String?
-    @NSManaged var isLiked: NSNumber?
-    @NSManaged var isRead: NSNumber?
+    @NSManaged var rawEntry: NSObject?
+    @NSManaged var entryType: String?
+    @NSManaged var published: String?
+    @NSManaged var startPage: String?
+    @NSManaged var endPage: String?
+    @NSManaged var volume: String?
+    @NSManaged var databasePublisher: String?
+    @NSManaged var databaseURL: String?
     @NSManaged var parent: Session?
 
 }

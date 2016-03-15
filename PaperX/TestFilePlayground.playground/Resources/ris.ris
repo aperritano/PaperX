@@ -1,0 +1,144 @@
+TY  - CONF
+T1  - Metaphone: machine aesthetics meets interaction design
+A1  - &Scaron;imbelis, Vygandas
+A1  - Lundstr&ouml;m, Anders
+A1  - H&ouml;&ouml;k, Kristina
+A1  - Solsona, Jordi
+A1  - Lewandowski, Vincent
+T2  - Proceedings of ACM CHI 2014 Conference on Human Factors in Computing Systems
+PY  - 2014/04/26
+VL  - 1
+SP  - 1
+EP  - 10
+UR  - http://dx.doi.org/10.1145/2556288.2557152
+AB  - Through our art project, Metaphone, we explored a particular form of
+aesthetics referred to in the arts tradition as machine aesthetics. The
+Metaphone machine collects the participant's bio-data, Galvanic Skin Response
+(GSR) and Heart Rate (HR), creating a process of movement, painting and sound.
+The machine behaves in machine-like, aesthetically evocative ways: a shaft on
+two large wheels rotates on the floor, carrying paint that is dripped onto a
+large sheet of aquarelle paper on the floor according to bio-sensor data. A
+soundscape rhythmically follows the bio-sensor data, but also has its own
+machine-like sounds. Six commentators were invited to interact with the
+machine. They reported a strangely relaxing atmosphere induced by the machine.
+Based on these experiences we discuss how different art styles can help to
+describe aesthetics in interaction design generally, and how machine aesthetics
+in particular can be used to create interesting, sustained, stylistically
+coherent interactions.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - Quantifying visual preferences around the world
+A1  - Reinecke, Katharina
+A1  - Gajos, Krzysztof Z.
+T2  - Proceedings of ACM CHI 2014 Conference on Human Factors in Computing Systems
+PY  - 2014/04/26
+VL  - 1
+SP  - 11
+EP  - 20
+UR  - http://dx.doi.org/10.1145/2556288.2557052
+AB  - Website aesthetics have been recognized as an influential moderator of
+people's behavior and perception. However, what users perceive as "good design"
+is subject to individual preferences, questioning the feasibility of universal
+design guidelines. To better understand how people's visual preferences differ,
+we collected 2.4 million ratings of the visual appeal of websites from nearly
+40 thousand participants of diverse backgrounds. We address several gaps in the
+knowledge about design preferences of previously understudied groups. Among
+other findings, our results show that the level of colorfulness and visual
+complexity at which visual appeal is highest strongly varies: Females, for
+example, liked colorful websites more than males. A high education level
+generally lowers this preference for colorfulness. Russians preferred a lower
+visual complexity, and Macedonians liked highly colorful designs more than any
+other country in our dataset. We contribute a computational model and estimates
+of peak appeal that can be used to support rapid evaluations of website design
+prototypes for specific target groups.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - The influence of aesthetics in usability testing: the case of dual-domain
+products
+A1  - Sonderegger, Andreas
+A1  - Uebelbacher, Andreas
+A1  - Pugliese, Manuela
+A1  - Sauer, Juergen
+T2  - Proceedings of ACM CHI 2014 Conference on Human Factors in Computing Systems
+PY  - 2014/04/26
+VL  - 1
+SP  - 21
+EP  - 30
+UR  - http://dx.doi.org/10.1145/2556288.2557419
+AB  - An experimental study examined whether the effects of aesthetic appeal on
+usability test outcomes are moderated by usage domain. The aesthetic appeal of
+a cell phone was experimentally manipulated in both home- and work-based usage
+domains. The two usage domains were modeled in a usability laboratory. 60
+participants completed a series of typical cell phone user tasks. Dependent
+measures such as performance, perceived usability, and emotion were taken. The
+results showed that aesthetic appeal had a positive effect on perceived
+usability but a negative effect on performance. The effects of aesthetic appeal
+on usability test outcomes were not moderated by usage domain. The results of
+this study imply that it may be sufficient to test dual-domain products in only
+one of their usage domains.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - Extracting references between text and charts via crowdsourcing
+A1  - Kong, Nicholas
+A1  - Hearst, Marti A.
+A1  - Agrawala, Maneesh
+T2  - Proceedings of ACM CHI 2014 Conference on Human Factors in Computing Systems
+PY  - 2014/04/26
+VL  - 1
+SP  - 31
+EP  - 40
+UR  - http://dx.doi.org/10.1145/2556288.2557241
+AB  - News articles, reports, blog posts and academic papers often include
+graphical charts that serve to visually reinforce arguments presented in the
+text. To help readers better understand the relation between the text and the
+chart, we present a crowdsourcing pipeline to extract the references between
+them. Specifically, we give crowd workers paragraph-chart pairs and ask them to
+select text phrases as well as the corresponding visual marks in the chart. We
+then apply automated clustering and merging techniques to unify the references
+generated by multiple workers into a single set. Comparing the crowdsourced
+references to a set of gold standard references using a distance measure based
+on the F1 score, we find that the average distance between the raw set of
+references produced by a single worker and the gold standard is 0.54 (out of a
+max of 1.0). When we apply clustering and merging techniques the average
+distance between the unified set of references and the gold standard reduces to
+0.39; an improvement of 27%. We conclude with an interactive document viewing
+application that uses the extracted references; readers can select phrases in
+the text and the system highlights the related marks in the chart.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - Stress and multitasking in everyday college life: an empirical study of
+online activity
+A1  - Mark, Gloria
+A1  - Wang, Yiran
+A1  - Niiya, Melissa
+T2  - Proceedings of ACM CHI 2014 Conference on Human Factors in Computing Systems
+PY  - 2014/04/26
+VL  - 1
+SP  - 41
+EP  - 50
+UR  - http://dx.doi.org/10.1145/2556288.2557361
+AB  - While HCI has focused on multitasking with information workers, we report on
+multitasking among Millennials who grew up with digital media -- focusing on
+college students. We logged computer activity and used biosensors to measure
+stress of 48 students for 7 days for all waking hours, in their in situ
+environments. We found a significant positive relationship with stress and
+daily time spent on computers. Stress is positively associated with the amount
+of multitasking. Conversely, stress is negatively associated with Facebook and
+social media use. Heavy multitaskers use significantly more social media and
+report lower positive affect than light multitaskers. Night habits affect
+multitasking the following day: late-nighters show longer duration of computer
+use and those ending their activities earlier in the day multitask less. Our
+study shows that college students multitask at double the frequency compared to
+studies of information workers. These results can inform designs for stress
+management of college students.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
