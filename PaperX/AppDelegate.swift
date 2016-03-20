@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    
     var dataController: DataController!
     let container = CKContainer.defaultContainer()
     let fileManager = NSFileManager()
@@ -92,7 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        
+        NSUbiquitousKeyValueStore.defaultStore().synchronize()
         return true
     }
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class RISFileParser {
     static let sharedInstance = RISFileParser()
@@ -52,6 +53,7 @@ class RISFileParser {
                 
                 var lastSection = ""
                 if sections.count > 1 {
+                                
                     lastSection = sections[1].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
                 }
                 
@@ -92,5 +94,4 @@ class RISFileParser {
         // do a post request and return post data
         return results
     }
-
 }

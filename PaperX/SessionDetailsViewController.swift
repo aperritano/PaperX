@@ -10,8 +10,7 @@ import UIKit
 import CoreData
 
 class SessionDetailsViewController: CoreDataTableViewController {
-    
-    
+
     // Mark: - Properties
     // 2
     var selectedSession: Session!
@@ -59,12 +58,15 @@ class SessionDetailsViewController: CoreDataTableViewController {
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
         let paperEntry = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
         
-    
+        let t = paperEntry.valueForKey("title") as! String!
         
-        cell.textLabel?.text = paperEntry.valueForKey("title") as! String!
+        cell.textLabel?.text = t
         
         let authors = paperEntry.valueForKey("authors") as! [String]
-        cell.detailTextLabel?.text = authors.joinWithSeparator(",")
+        
+        let newString = authors.joinWithSeparator(",").stringByDecodingHTMLEntities
+
+        cell.detailTextLabel?.text = newString
         
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.LongStyle
@@ -96,19 +98,19 @@ class SessionDetailsViewController: CoreDataTableViewController {
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        let sessionDetailVC = segue.destinationViewController as! SessionDetailsViewController
-        
-        let indexPath = self.tableView.indexPathForSelectedRow!
-        
-        let selectedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Session
-        sessionDetailVC.selectedSession = selectedObject
-        
-        let index = tableView.indexPathForSelectedRow!.row
-        print("\(index) selected from sesssion")
-        //        secondVC.selectedCollege = colleges[index]
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+//    {
+//        let sessionDetailVC = segue.destinationViewController as! SessionDetailsViewController
+//        
+//        let indexPath = self.tableView.indexPathForSelectedRow!
+//        
+//        let selectedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Session
+//        sessionDetailVC.selectedSession = selectedObject
+//        
+//        let index = tableView.indexPathForSelectedRow!.row
+//        print("\(index) selected from sesssion")
+//        //        secondVC.selectedCollege = colleges[index]
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

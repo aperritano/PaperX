@@ -1,12 +1,34 @@
 PODS:
+  - Cartography (0.6.0)
+  - Dollar (5.0.0)
+  - Koloda (2.0.10):
+    - pop (~> 1.0)
+  - Material (1.37.2)
+  - performSelector-swift (0.1.0)
+  - pop (1.0.9)
   - RandomKit (1.6.0)
+  - ReactiveUI (0.0.3)
+  - UIColor+FlatColors (0.0.2)
 
 DEPENDENCIES:
+  - Cartography
+  - Dollar
+  - Koloda
+  - Material (~> 1.0)
+  - performSelector-swift
   - RandomKit (~> 1.6.0)
+  - ReactiveUI
+  - UIColor+FlatColors
 
 SPEC CHECKSUMS:
+  Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
+  Dollar: 310893dd6b3799b9b155e3deb61a0492987e4d03
+  Koloda: 10f747feeff5e425061f78e5ce17208783e34a99
+  Material: 81cebd93bbb49c1cc176403649cb676125141f09
+  performSelector-swift: 676d3dab420ed7e1505a7cdaf35e5741509cdd3c
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   RandomKit: 9b33ce5fc448056e8ddaaef655da315b26f23e32
+  ReactiveUI: 05d1f5d884e5a2496a2cd2ac6c0ed35ab0218c02
+  UIColor+FlatColors: 6c699df7a575281794c688c64cee6c44fd1f93b4
 
-PODFILE CHECKSUM: e1afbcc697af076490a2f0d77962f050329fe10d
-
-COCOAPODS: 1.0.0.beta.3
+COCOAPODS: 0.39.0

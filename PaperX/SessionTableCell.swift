@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Material
 
-class SessionCell: UITableViewCell {
+class SessionTableCell: UITableViewCell {
     
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var totalPaper: UILabel!

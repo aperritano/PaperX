@@ -7,3 +7,15 @@
 //
 
 import Foundation
+import UIKit
+
+
+private var numberOfCards: UInt = 5
+
+class CardUIViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+}

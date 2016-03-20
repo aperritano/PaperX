@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 import CloudKit
 import MobileCoreServices
+import Material
 
 class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDelegate {
 
@@ -24,6 +25,8 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     let backgroundTaskName = "saveNewCar"
     /* The background task identifier for the task that will save our record in the database when our app goes to the background */
     var backgroundTaskIdentifier: UIBackgroundTaskIdentifier = UIBackgroundTaskInvalid
+    
+    
     
     
     // Mark: - Properties
@@ -55,30 +58,72 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "HeroListCell"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as UITableViewCell
+        let cellIdentifier = "sessionCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
         // Configure the cell...
         self.configureCell(cell, indexPath: indexPath)
         
+        
         return cell
     }
     
- 
+
     // MARK: - UITableViewDataSource
     
     override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
-        let aHero = fetchedResultsController.objectAtIndexPath(indexPath) as! NSManagedObject
-        cell.textLabel?.text = aHero.valueForKey("title") as! String!
+        let sessionObj = fetchedResultsController.objectAtIndexPath(indexPath) as! Session
+        let sessionCell = cell as! SessionTableCell
+        sessionCell.titleLabel?.text = sessionObj.valueForKey("title") as! String!
+    
+        var counts = 0;
+        
+        if (sessionObj.papers?.count) != nil {
+            
+            sessionCell.totalPaper!.text = "Paper Count \(String(sessionObj.papers!.count))"
+            for paperEntry in sessionObj.papers! as! Set<PaperEntry> {
+                print(" paper entry \(paperEntry.isLiked)")
+                if (paperEntry.isLiked != nil) {
+                    counts += 1
+                }
+                
+            }
+            sessionCell.likesLabel.text = "Liked \(counts)"
+        }
         
         let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.LongStyle
-        formatter.timeStyle = .MediumStyle
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        formatter.timeStyle = .ShortStyle
 //        
-        if let last_modified = aHero.valueForKey("last_modified") {
+        if let last_modified = sessionObj.valueForKey("last_modified") {
             let dateString = formatter.stringFromDate(last_modified as! NSDate)
-            cell.detailTextLabel?.text = dateString
+            sessionCell.timestampLabel?.text = dateString
         }
+    }
+    
+    func fetchPaperEntry(uuid: String) {
+      
+        let fr = NSFetchRequest(entityName: "PaperEntry")
+            fr.sortDescriptors = [NSSortDescriptor(key: "last_modified", ascending: true)]
+        
+        
+//        let resultPredicate1 = NSPredicate(format: "parent.uuid  == %@ ", "AEB91DA6-AA0D-45A2-A0ED-7E188F2AE385")
+        let resultPredicate2 = NSPredicate(format: "isLiked == false")
+        
+        let compound:NSCompoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [resultPredicate2])
+        
+        
+        fr.predicate = compound
+        
+        do {
+        let results = try self.dataController?.managedObjectContext.executeFetchRequest(fr)
+                    print(" \(results!.count) results changed")
+        } catch {
+            
+        }
+
+        
+      
     }
     
     //Mark: - UIDocumentPickerDelegate
@@ -86,23 +131,9 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
         //print("document picker \(url)")
         
-        let filename = url.URLByDeletingPathExtension?.lastPathComponent
-        
-        //let filename = fileURL.URLByDeletingPathExtension?.lastPathComponent
-//        let ext = url.pathExtension
-//        print(filename)
-//        print(ext)
-        
-     
-    
-        
-        
-        //test read
-        //let filePath = NSBundle.mainBundle().pathForResource("example", ofType: "ris")
+        let filename = url.URLByDeletingPathExtension?.lastPathComponent    
         
         let items = RISFileParser.readFile(url.path!)
-        
-//        print(url.path)
         
         //test read
         
@@ -130,6 +161,8 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
             
             print(title)
             print(message)
+        } catch {
+            
         }
         
     }
@@ -184,14 +217,15 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         /* Store information about a Volvo V50 car */
         let volvoV50 = CKRecord(recordType: "Car")
-        volvoV50.setObject("Volvo", forKey: "maker")
+        volvoV50.setObject("bob", forKey: "maker")
         volvoV50.setObject("V50", forKey: "model")
         volvoV50.setObject(5, forKey: "numberOfDoors")
         volvoV50.setObject(2015, forKey: "year")
         
+        
+        fetchPaperEntry("Dfd")
         /* Save this record publicly */
         
         
@@ -203,6 +237,10 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
                 
             }
         })
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -227,12 +265,7 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     
 
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-
-        
-       
-    }
+    
 
   
 }
