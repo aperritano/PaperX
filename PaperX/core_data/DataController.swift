@@ -69,6 +69,7 @@ class DataController: NSObject {
         
         for risEntry in results {
             let pe = self.createPaperEntry()
+            pe.uuid = NSUUID().UUIDString
             pe.populateEndnote(risEntry)
             risEntries.insert(pe)
         }
@@ -101,6 +102,24 @@ class DataController: NSObject {
 //        return []
 //        
 //    }
+    
+    func updatePaperEntry(paperEntry: PaperEntry) {
+        let entity = paperEntry as NSManagedObject
+        do {
+            try entity.managedObjectContext?.save()
+        } catch {
+            let saveError = error as NSError
+            print(saveError)
+        }
+    }
+    
+    func fetchSession(uuid: String) -> Session {
+        let sessions = fetchSessions()
+        
+        let found = sessions.filter( {$0.uuid == uuid })
+        return found[0]
+    }
+
     
     func fetchSessions() -> [Session] {
         let sessionFetch = NSFetchRequest(entityName: "Session")

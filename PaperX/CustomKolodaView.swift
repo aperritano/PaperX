@@ -10,15 +10,17 @@ import UIKit
 import Koloda
 
 let defaultBottomOffset:CGFloat = 0
-let defaultTopOffset:CGFloat = 20
+let defaultTopOffset:CGFloat = 5
 let defaultHorizontalOffset:CGFloat = 10
-let defaultHeightRatio:CGFloat = 1.25
-let backgroundCardHorizontalMarginMultiplier:CGFloat = 0.25
+let defaultHeightRatio:CGFloat = 1.50
+let backgroundCardHorizontalMarginMultiplier:CGFloat = 0.10
 let backgroundCardScalePercent:CGFloat = 1.5
 
 class CustomKolodaView: KolodaView {
+    
+    var paperEntry: PaperEntry? 
 
-    override func frameForCardAtIndex(index: UInt) -> CGRect {
+    override func frameForCardAtIndex(index: UInt) -> CGRect {        
         if index == 0 {
             let topOffset:CGFloat = defaultTopOffset
             let xOffset:CGFloat = defaultHorizontalOffset
@@ -30,7 +32,7 @@ class CustomKolodaView: KolodaView {
             return frame
         } else if index == 1 {
             let horizontalMargin = -self.bounds.width * backgroundCardHorizontalMarginMultiplier
-            let width = self.bounds.width * backgroundCardScalePercent
+            let width = self.bounds.width
             let height = width * defaultHeightRatio
             return CGRect(x: horizontalMargin, y: 0, width: width, height: height)
         }

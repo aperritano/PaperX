@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         dataController = DataController()
         
+        self.testData()
+        
         if application.isRegisteredForRemoteNotifications() == false {
             print("Not registered for push notifications. Registering now...")
             let settings = UIUserNotificationSettings(forTypes: [.Alert,.Badge],
@@ -36,8 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             application.registerUserNotificationSettings(settings)
             application.registerForRemoteNotifications()
         }
-        
-
         
         dispatch_async(dispatch_get_global_queue(Int(DISPATCH_QUEUE_PRIORITY_DEFAULT), 0)) {
             if let iCloud = self.fileManager.URLForUbiquityContainerIdentifier(nil) {
@@ -184,6 +184,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         print("Successfully registered for remote notifications")
+    }
+    
+    func testData() {
+        let filePath = NSBundle.mainBundle().pathForResource("test", ofType: "ris")
+        
+        let items = RISFileParser.readFile(filePath!)
+        
+        self.dataController?.saveResults("TESTER", results: items)
     }
 
     func applicationWillResignActive(application: UIApplication) {

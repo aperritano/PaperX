@@ -82,12 +82,15 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
             
             sessionCell.totalPaper!.text = "Paper Count \(String(sessionObj.papers!.count))"
             for paperEntry in sessionObj.papers! as! Set<PaperEntry> {
-                print(" paper entry \(paperEntry.isLiked)")
-                if (paperEntry.isLiked != nil) {
-                    counts += 1
+                //print(" paper entry \(paperEntry.isLiked)")
+                if let liked = paperEntry.isLiked {
+                    if liked == true {
+                     counts += 1
+                    }
                 }
                 
             }
+            //print(" we got \(counts) likes")
             sessionCell.likesLabel.text = "Liked \(counts)"
         }
         
@@ -187,19 +190,22 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
-        let sessionDetailVC = segue.destinationViewController as! SessionDetailsViewController
+        //let sessionDetailVC = segue.destinationViewController as! SessionDetailsViewController
+        let sessionDetailVC = segue.destinationViewController as! CardUIViewController
         
         let indexPath = self.tableView.indexPathForSelectedRow!
         
         let selectedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Session
         sessionDetailVC.selectedSession = selectedObject
+        let p = selectedObject.papers!.allObjects as! [PaperEntry]
         
-        let index = tableView.indexPathForSelectedRow!.row
-        print("\(index) selected from sesssion")
-//        secondVC.selectedCollege = colleges[index]
+        let paperNotLiked = p.filter( {$0.isLiked == nil })
+        print("not liked \(paperNotLiked.count)")
+        sessionDetailVC.papers = p.filter( {$0.isLiked == nil })
+        //let index = tableView.indexPathForSelectedRow!.row
+        
     }
-    
-    
+
     func subscription() -> CKSubscription{
         let predicate = NSPredicate(format: "maker == %@", maker)
         let subscription = CKSubscription(recordType: recordType, predicate: predicate,subscriptionID: subscriptionId,options: .FiresOnRecordCreation)
@@ -216,27 +222,27 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /* Store information about a Volvo V50 car */
-        let volvoV50 = CKRecord(recordType: "Car")
-        volvoV50.setObject("bob", forKey: "maker")
-        volvoV50.setObject("V50", forKey: "model")
-        volvoV50.setObject(5, forKey: "numberOfDoors")
-        volvoV50.setObject(2015, forKey: "year")
-        
-        
-        fetchPaperEntry("Dfd")
-        /* Save this record publicly */
-        
-        
-        database.saveRecord(volvoV50, completionHandler: { (record, error) -> Void in
-            if (error != nil) {
-                print(error)
-            } else {
-                NSLog("Saved in cloudkit")
-                
-            }
-        })
+//        
+//        /* Store information about a Volvo V50 car */
+//        let volvoV50 = CKRecord(recordType: "Car")
+//        volvoV50.setObject("bob", forKey: "maker")
+//        volvoV50.setObject("V50", forKey: "model")
+//        volvoV50.setObject(5, forKey: "numberOfDoors")
+//        volvoV50.setObject(2015, forKey: "year")
+//        
+//        
+////        fetchPaperEntry("Dfd")
+//        /* Save this record publicly */
+//        
+//        
+//        database.saveRecord(volvoV50, completionHandler: { (record, error) -> Void in
+//            if (error != nil) {
+//                print(error)
+//            } else {
+//                NSLog("Saved in cloudkit")
+//                
+//            }
+//        })
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -246,6 +252,23 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     override func viewDidDisappear(animated: Bool) {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        print("will appear")
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            do {
+                try self.fetchedResultsController.performFetch()
+                
+                self.tableView.reloadData()
+
+            } catch {
+                fatalError("Failed to initialize FetchedResultsController: \(error)")
+            }
+
+        })
+        
+    }   
     
     func appCameToForeground(notification: NSNotification){
         print("Application came to the foreground")

@@ -55,6 +55,8 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
     // MARK: NSFetchedResultsControllerDelegate
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        print("will changed")
+
         tableView.beginUpdates()
     }
     
@@ -89,6 +91,7 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        print("did changed")
         tableView.endUpdates()
     }
     

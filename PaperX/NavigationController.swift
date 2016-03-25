@@ -17,7 +17,7 @@ class NavigationController: UINavigationController, UIViewControllerTransitionin
         
         // Status bar white font
         self.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationBar.barTintColor = MaterialColor.red.base
+        self.navigationBar.barTintColor = MaterialColor.blue.base
         self.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 

@@ -115,6 +115,8 @@ class SessionDetailsViewController: CoreDataTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+
 }
 
 
