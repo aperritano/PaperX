@@ -1,21 +1,99 @@
 //
 //  CardUIViewController.swift
-//  PaperX
+//  Koloda
 //
-//  Created by Anthony Perritano on 3/18/16.
-//  Copyright © 2016 so.raven. All rights reserved.
+//  Created by Eugene Andreyev on 7/11/15.
+//  Copyright (c) 2015 CocoaPods. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import Koloda
+import pop
 
-
-private var numberOfCards: UInt = 5
+private let numberOfCards: UInt = 5
+private let frameAnimationSpringBounciness:CGFloat = 9
+private let frameAnimationSpringSpeed:CGFloat = 16
+private let kolodaCountOfVisibleCards = 2
+private let kolodaAlphaValueSemiTransparent:CGFloat = 0.1
 
 class CardUIViewController: UIViewController {
     
+    var selectedSession: Session!
+
+    @IBOutlet weak var kolodaView: CustomKolodaView!
+    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        kolodaView.alphaValueSemiTransparent = kolodaAlphaValueSemiTransparent
+        kolodaView.countOfVisibleCards = kolodaCountOfVisibleCards
+        kolodaView.delegate = self
+        kolodaView.dataSource = self
+        self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     }
     
+    
+    //MARK: IBActions
+    @IBAction func leftButtonTapped() {
+        kolodaView?.swipe(SwipeResultDirection.Left)
+    }
+    
+    @IBAction func rightButtonTapped() {
+        kolodaView?.swipe(SwipeResultDirection.Right)
+    }
+    
+    @IBAction func undoButtonTapped() {
+        kolodaView?.revertAction()
+    }
+}
+
+//MARK: KolodaViewDelegate
+extension CardUIViewController: KolodaViewDelegate {
+    func koloda(kolodaDidRunOutOfCards koloda: KolodaView) {
+        //Example: reloading
+        kolodaView.resetCurrentCardNumber()
+    }
+    
+    func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
+        UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
+    }
+    
+    func koloda(kolodaShouldApplyAppearAnimation koloda: KolodaView) -> Bool {
+        return true
+    }
+    
+    func koloda(kolodaShouldMoveBackgroundCard koloda: KolodaView) -> Bool {
+        return true
+    }
+//
+//    func koloda(kolodaShouldTransparentizeNextCard koloda: KolodaView) -> Bool {
+//        return false
+//    }
+    
+    func koloda(kolodaBackgroundCardAnimation koloda: KolodaView) -> POPPropertyAnimation? {
+        let animation = POPSpringAnimation(propertyNamed: kPOPViewFrame)
+        animation.springBounciness = frameAnimationSpringBounciness
+        animation.springSpeed = frameAnimationSpringSpeed
+        return animation
+    }
+}
+
+//MARK: KolodaViewDataSource
+extension CardUIViewController: KolodaViewDataSource {
+    
+    func koloda(kolodaNumberOfCards koloda:KolodaView) -> UInt {
+        print("num of cards \((selectedSession.papers?.count)!)")
+        return UInt((selectedSession.papers?.count)!)
+    }
+    
+    func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
+        print("card index \(index)")
+        return (NSBundle.mainBundle().loadNibNamed("CardUIView",
+            owner: self, options: nil)[0] as? CardUIView)!
+    }
+    
+    func koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {
+        return NSBundle.mainBundle().loadNibNamed("CustomOverlayView",
+            owner: self, options: nil).first as? OverlayView
+    }
 }
