@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import Material
 
 class NavigationController: UINavigationController, UIViewControllerTransitioningDelegate {
     
@@ -16,10 +15,10 @@ class NavigationController: UINavigationController, UIViewControllerTransitionin
         super.viewDidLoad()
         
         // Status bar white font
-        self.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationBar.barTintColor = MaterialColor.blue.base
-        self.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        self.navigationBar.barStyle = .Black
+//        self.navigationBar.barTintColor = UIColor.blackColor()
+//        self.navigationBar.tintColor = UIColor.whiteColor()
+//        self.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
 
     }
 }

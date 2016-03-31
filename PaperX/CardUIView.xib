@@ -11,14 +11,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Proceedings of ACM CHI 2014 Conference on Human Factors in Computing Systems" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="lbM-Xl-zMG" userLabel="SourceTitleTextView">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lbM-Xl-zMG" userLabel="SourceTitleTextView" customClass="VerticalTextView" customModule="PaperX" customModuleProvider="target">
                     <rect key="frame" x="20" y="20" width="600" height="800"/>
-                    <color key="backgroundColor" red="0.30588235289999999" green="0.41568627450000001" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.81525619239595959" green="0.81525619239595959" blue="0.81525619239595959" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="68" id="Wg3-dT-onh"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Proceedings of ACM CHI 2014 Conference on Human Factors in Computing Systems">
+                            <attributes>
+                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="Wg3-dT-onh"/>
@@ -31,16 +38,23 @@
                         </mask>
                     </variation>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="The effect of developer-specified explanations for permission requests on smartphone user behavior" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="5dX-Jb-enn" userLabel="TitleTextView">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5dX-Jb-enn" userLabel="TitleTextView" customClass="VerticalTextView" customModule="PaperX" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <color key="backgroundColor" red="0.99215686270000003" green="0.71372549019999998" blue="0.050980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.87229138810707074" green="0.87229138810707074" blue="0.87229138810707074" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="109" id="qya-I6-bcK">
                             <variation key="heightClass=regular" constant="80"/>
                         </constraint>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <attributedString key="attributedText">
+                        <fragment content="The effect of developer-specified explanations for permission requests on smartphone user behavior">
+                            <attributes>
+                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="qya-I6-bcK"/>
@@ -56,18 +70,25 @@
                         <rect key="frame" x="17" y="89" width="400" height="54"/>
                     </variation>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZOW-lo-aJ3" userLabel="AuthorTextView">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZOW-lo-aJ3" userLabel="AuthorTextView" customClass="VerticalTextView" customModule="PaperX" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <color key="backgroundColor" red="0.2470588235" green="0.64313725489999995" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.92822178583434345" green="0.92822178583434345" blue="0.92822178583434345" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="80" id="9yo-7G-bfz"/>
                         <constraint firstAttribute="height" constant="61" id="Ok0-63-giB">
                             <variation key="heightClass=regular" constant="71"/>
                         </constraint>
                     </constraints>
-                    <string key="text">Tan, Joshua,Nguyen, Khanh, Theodorides, Michael, Negr&amp;oacute;n-Arroyo, Heidi,Thompson, Christopher, Egelman, Serge,Wagner, David</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">Tan, Joshua,Nguyen, Khanh, Theodorides, Michael, Negr&amp;oacute;n-Arroyo, Heidi,Thompson, Christopher, Egelman, Serge,Wagner, David</string>
+                            <attributes>
+                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="9yo-7G-bfz"/>
@@ -88,14 +109,18 @@
                         </mask>
                     </variation>
                 </textView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j4z-py-NhJ" userLabel="AbstractTitleTextView">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j4z-py-NhJ" userLabel="AbstractTitleTextView" customClass="VerticalTextView" customModule="PaperX" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">In Apple's iOS 6, when an app requires access to a protected resource (e.g., location or photos), the user is prompted with a permission request that she can allow or deny. These permission request dialogs include space for developers to optionally include strings of text to explain to the user why
-access to the resource is needed. We examine how app developers are using this
-mechanism and the effect that it has on user behavior. Through an online survey of 772 smartphone users, we show that permission requests that include
-explanations are significantly more likely to be approved. At the same time, our analysis of 4,400 iOS apps shows that the adoption rate of this feature by developers is relatively small: around 19% of permission requests include developer-specified explanations. Finally, we surveyed 30 iOS developers to better understand why they do or do not use this feature.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <attributedString key="attributedText">
+                        <fragment>
+                            <string key="content">In Apple's iOS 6, when an app requires access to a protected resource (e.g., location or photos), the user is prompted with a permission request that she can allow or deny. These permission request dialogs include space for developers to optionally include strings of text to explain to the user why access to the resource is needed. We examine how app developers are using this mechanism and the effect that it has on user behavior. Through an online survey of 772 smartphone users, we show that permission requests that include explanations are significantly more likely to be approved. At the same time, our analysis of 4,400 iOS apps shows that the adoption rate of this feature by developers is relatively small: around 19% of permission requests include developer-specified explanations. Finally, we surveyed 30 iOS developers to better understand why they do or do not use this feature.</string>
+                            <attributes>
+                                <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <variation key="heightClass=regular">
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -125,6 +150,11 @@ explanations are significantly more likely to be approved. At the same time, our
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="7"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <variation key="default">
                 <mask key="subviews">
                     <exclude reference="lbM-Xl-zMG"/>
@@ -174,7 +204,7 @@ explanations are significantly more likely to be approved. At the same time, our
                 </mask>
             </variation>
             <connections>
-                <outlet property="abstractTextView" destination="ZOW-lo-aJ3" id="k4Z-AI-FoB"/>
+                <outlet property="abstractTextView" destination="j4z-py-NhJ" id="yqX-dk-PHG"/>
                 <outlet property="authorsTextView" destination="ZOW-lo-aJ3" id="QtD-CB-6KP"/>
                 <outlet property="paperTitleTextView" destination="5dX-Jb-enn" id="J5D-eW-gqU"/>
                 <outlet property="sourceTitleTextView" destination="lbM-Xl-zMG" id="GOe-SR-Ku8"/>

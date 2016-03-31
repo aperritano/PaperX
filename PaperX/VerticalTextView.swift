@@ -9,38 +9,53 @@
 import Foundation
 import UIKit
 
-class VerticalCenteredTextView: UITextView {
+class VerticalTextView: UITextView {
     
-
-    override init(frame: CGRect, textContainer: NSTextContainer?) {
-        super.init(frame: frame, textContainer: textContainer)
-        self.addContentSizeObserver()
-
+    enum VerticalAlignment: Int {
+        case Top = 0, Middle, Bottom
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.addContentSizeObserver()
+    var verticalAlignment: VerticalAlignment = .Middle
+    
+    //override contentSize property and observe using didSet
+    override var contentSize: CGSize {
+        didSet {
+            let height = self.bounds.size.height
+            let contentHeight: CGFloat = contentSize.height
+            var topCorrect: CGFloat = 0.0
+            
+            switch (self.verticalAlignment) {
+            case .Top:
+                self.contentOffset = CGPointZero //set content offset to top
+                
+            case .Middle:
+                topCorrect = (height - contentHeight * self.zoomScale) / 2.0
+                topCorrect = topCorrect < 0 ? 0 : topCorrect
+                self.contentOffset = CGPoint(x: 0, y: -topCorrect)
+                
+            case .Bottom:
+                topCorrect = self.bounds.size.height - contentHeight
+                topCorrect = topCorrect < 0 ? 0 : topCorrect
+                self.contentOffset = CGPoint(x: 0, y: -topCorrect)
+            }
+            
+            if contentHeight >= height { // if the contentSize is greater than the height
+                topCorrect = contentHeight - height // set the contentOffset to be the
+                topCorrect = topCorrect < 0 ? 0 : topCorrect // contentHeight - height of textView
+                self.contentOffset = CGPoint(x: 0, y: topCorrect)
+            }
+        }
     }
     
-    private func addContentSizeObserver() {
-        self.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.New, context: nil)
-    }
+    // MARK: - UIView
     
-    private func removeContentSizeObserver() {
-        self.removeObserver(self, forKeyPath: "contentSize")
-    }
-    
-    
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        //let textView = object as! UITextView
-        var topCorrect = (self.bounds.size.height - self.contentSize.height * self.zoomScale) / 2
-        topCorrect = topCorrect < 0.0 ? 0.0 : topCorrect;
-        self.contentInset.top = topCorrect
-    }
-    
-    deinit {
-        removeContentSizeObserver()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+      
+        
+        let size = self.contentSize // forces didSet to be called
+        self.contentSize = size
+       
     }
     
 }

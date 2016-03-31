@@ -103,6 +103,23 @@ class DataController: NSObject {
 //        
 //    }
     
+    func deleteSession(session:Session) {
+        self.managedObjectContext.deleteObject(session)
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), {
+            do {
+                LOG.debug("DELETING \(session.uuid)")
+                try self.managedObjectContext.save()
+                
+            } catch {
+                let saveError = error as NSError
+                LOG.debug("\(saveError)")
+            }
+        
+        })
+
+       
+    }
     func updatePaperEntry(paperEntry: PaperEntry) {
         let entity = paperEntry as NSManagedObject
         do {

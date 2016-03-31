@@ -9,12 +9,13 @@
 import UIKit
 import Koloda
 import pop
+import SafariServices
 
 private let numberOfCards: UInt = 5
 private let frameAnimationSpringBounciness:CGFloat = 9
 private let frameAnimationSpringSpeed:CGFloat = 16
 private let kolodaCountOfVisibleCards = 2
-private let kolodaAlphaValueSemiTransparent:CGFloat = 0.1
+private let kolodaAlphaValueSemiTransparent:CGFloat = 0.5
 
 class CardUIViewController: UIViewController {
     
@@ -23,6 +24,7 @@ class CardUIViewController: UIViewController {
     var currentPaperStack : [String] = []
     var currentCard: CardUIView?
     var paperIndex = 0
+    var lastCardIndex : UInt = 0
 
     @IBOutlet weak var kolodaView: CustomKolodaView!
     
@@ -36,11 +38,22 @@ class CardUIViewController: UIViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
         dataController = appDelegate.dataController
+        
+       
     }
     
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        if traitCollection.forceTouchCapability == .Available {
+//            registerForPreviewingWithDelegate(self, sourceView: kolodaView)
+//        } else {
+//            LOG.info("3D Touch Not available")
+//            // Provide alternatives such as touch and hold,
+//            // implemented with UILongPressGestureRecognizer class
+//        }
+        
         kolodaView.alphaValueSemiTransparent = kolodaAlphaValueSemiTransparent
         kolodaView.countOfVisibleCards = kolodaCountOfVisibleCards
         kolodaView.delegate = self
@@ -86,55 +99,123 @@ class CardUIViewController: UIViewController {
 
     func updateTitle(title: String) {
         if let totalPaperCount = self.selectedSession.papers?.count {
-            if let liked = self.selectedSession.papers?.filter( {$0.isLiked == true }).count {
-                self.title = "\(title) \(liked) of \(totalPaperCount)"
-            }
+      
+                if let liked = self.selectedSession.papers?.filter( {$0.isLiked == true }).count {
+                    self.title = "\(title) \(liked) of \(totalPaperCount)"
+                }
+         
+
         }
     }
     
     override func didMoveToParentViewController(parent: UIViewController?) {
         self.updateEntities()
-//        currentPaperStack = []
     }
 
+    @IBAction func shareLikedPapers(sender: UIBarButtonItem) {
+        LOG.debug("Writing File")
+        
+            if let liked = self.selectedSession.papers?.filter( {$0.isLiked == true }) as? [PaperEntry] {
+                if let title = self.selectedSession.title {
+                    RISFileParser.writeRISFile(liked, filePath: title)
+               }
+            }
+     
+    }
+    
+    func findPaperEntry(index: UInt) -> PaperEntry? {
+        let i = Int(index)
+        
+        if i >= 0 {
+//            let paperUUID = currentPaperStack[Int(index)]
+//            let found = self.papers.filter({$0.uuid == paperUUID })[0]
+//            let paperUUID = currentPaperStack[Int(index)]
+            let found = self.papers[i-paperIndex]
+            LOG.debug("\n-- found card \(found.uuid!) \(i) with \(papers.count)--\n")
+            return found
+        }
+        
+        return nil
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
+}
+
+
+extension CardUIViewController: SFSafariViewControllerDelegate {
+    
 }
 
 //MARK: KolodaViewDelegate
 extension CardUIViewController: KolodaViewDelegate {
+    
+    func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
+        if let found = self.findPaperEntry(index) {
+            if let doi = found.doi {
+                if let url = NSURL(string: doi) {
+                    let controller = SFSafariViewController(URL: url, entersReaderIfAvailable: true)
+                    controller.delegate = self
+                    LOG.debug("Launching web")
+                    presentViewController(controller, animated: true, completion: nil)
+                }
+            }
+        }
+        
+        
+        
+     
+
+//        UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
+    }
+    
+    func koloda(koloda: KolodaView, didShowCardAtIndex index: UInt) {
+        
+        lastCardIndex = index
+        //taps on card
+        //LOG.debug("SHOWED on CARD")
+
+        
+        
+    }
+
+    
     func koloda(kolodaDidRunOutOfCards koloda: KolodaView) {
         //Example: reloading
         //kolodaView.resetCurrentCardNumber()
     }
-    
-    
+
+ 
     func koloda(koloda: KolodaView, didSwipedCardAtIndex index: UInt, inDirection direction: SwipeResultDirection) {
         
-        let paperUUID = currentPaperStack[Int(index)]
-        let found = self.papers.filter({$0.uuid == paperUUID })[0]
-
-        //print("SWIPED card \(currentPaper.title) paperIndex \(paperIndex) index \(index)")
-
-
-        switch direction {
-        case .Left :
-            //print("SWIPE NOT \(paperIndex)")
+        if let found = findPaperEntry(index) {
+            //LOG.debug("swiping card \(found.uuid)")
+            switch direction {
+            case .Left :
+                //print("SWIPE NOT \(paperIndex)")
+                
+                found.isLiked = false
+                dataController?.updatePaperEntry(found)
+                updateEntities()
+            case .Right :
+                found.isLiked = true
+                dataController?.updatePaperEntry(found)
+                updateEntities()
+            default:
+                print("NONE")
+            }
             
-            found.isLiked = false
-            dataController?.updatePaperEntry(found)
-            updateEntities()
+            if let title = selectedSession.title {
+                self.updateTitle(title)
+            }
+            //adjusted index
             paperIndex += 1
-        case .Right :
-            found.isLiked = true
-            dataController?.updatePaperEntry(found)
-            updateEntities()
-            paperIndex += 1
-        default:
-            print("NONE")
         }
 
-        if let title = selectedSession.title {
-            self.updateTitle(title)
-        }
+      
+        
     }
 //    func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
 //        UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
@@ -162,33 +243,35 @@ extension CardUIViewController: KolodaViewDelegate {
 
 //MARK: KolodaViewDataSource
 extension CardUIViewController: KolodaViewDataSource {
-
-
-
+    
     func koloda(kolodaNumberOfCards koloda:KolodaView) -> UInt {
         return UInt(papers.count)
     }
     
+
+
     func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
 
-        let localIndex = Int(index)
-        let adjustedIndex = paperIndex + localIndex
+        let localIndex = Int(index) - paperIndex
+        //let adjustedIndex = paperIndex + localIndex
         
-//        print("card index \(localIndex)  - paper index \(paperIndex) - adjusted index \(adjustedIndex)")
+//        LOG.debug("card index \(localIndex)  - paper index \(paperIndex) - adjusted index \(adjustedIndex)")
+        //LOG.debug("card index \(localIndex)")
 //
         let card = (NSBundle.mainBundle().loadNibNamed("CardUIView",
             owner: self, options: nil)[0] as? CardUIView)!
         
-        if adjustedIndex < papers.count {
-            let paperEntry = papers![adjustedIndex]
+        //LOG.debug("\n--------------- papers count \(self.papers.count) viewing card \(localIndex) ")
+        if localIndex < papers.count {
 
-            print("paper uuid \(paperEntry.uuid)")
+            let paperEntry = self.papers![localIndex]
 
+            LOG.debug("\(paperEntry.uuid!) \(localIndex) papers count \(self.papers.count) --------------- \n")
             currentPaperStack.append(paperEntry.uuid!)
             //print("\(paperEntry.title)")
             card.populateCard(paperEntry)
-            print("ADDED \(paperEntry.title!) - local - \(localIndex) - papIndex - \(paperIndex)")
-            print("stack: \(currentPaperStack.count)")
+//            card.setNeedsDisplay()
+//            card.setNeedsLayout()
         }
         return card
     }

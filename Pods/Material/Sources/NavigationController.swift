@@ -60,6 +60,7 @@ public class NavigationController : UINavigationController, UIGestureRecognizerD
 	
 	public override func viewDidLoad() {
 		super.viewDidLoad()
+		prepareView()
 		
 		// This ensures the panning gesture is available when going back between views.
 		if let v: UIGestureRecognizer = interactivePopGestureRecognizer {
@@ -115,8 +116,8 @@ public class NavigationController : UINavigationController, UIGestureRecognizerD
 			} else {
 				item.leftControls = [v.backButton]
 			}
-			v.backButton.removeTarget(self, action: "handleBackButton", forControlEvents: .TouchUpInside)
-			v.backButton.addTarget(self, action: "handleBackButton", forControlEvents: .TouchUpInside)
+			v.backButton.removeTarget(self, action: #selector(handleBackButton), forControlEvents: .TouchUpInside)
+			v.backButton.addTarget(self, action: #selector(handleBackButton), forControlEvents: .TouchUpInside)
 			v.layoutNavigationItem(item)
 		}
 		return true
@@ -125,5 +126,10 @@ public class NavigationController : UINavigationController, UIGestureRecognizerD
 	/// Handler for the back button.
 	internal func handleBackButton() {
 		popViewControllerAnimated(true)
+	}
+	
+	/// Prepares the view.
+	private func prepareView() {
+		view.clipsToBounds = true
 	}
 }

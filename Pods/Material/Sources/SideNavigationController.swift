@@ -162,14 +162,14 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	
 	/**
 	A Boolean property used to enable and disable interactivity
-	with the mainViewController.
+	with the rootViewController.
 	*/
 	@IBInspectable public var userInteractionEnabled: Bool {
 		get {
-			return mainViewController.view.userInteractionEnabled
+			return rootViewController.view.userInteractionEnabled
 		}
 		set(value) {
-			mainViewController.view.userInteractionEnabled = value
+			rootViewController.view.userInteractionEnabled = value
 		}
 	}
 	
@@ -258,11 +258,11 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	
 	/**
 	A UIViewController property that references the active 
-	main UIViewController. To swap the mainViewController, it 
-	is recommended to use the transitionFromMainViewController
+	main UIViewController. To swap the rootViewController, it 
+	is recommended to use the transitionFromRootViewController
 	helper method.
 	*/
-	public private(set) var mainViewController: UIViewController!
+	public private(set) var rootViewController: UIViewController!
 	
 	/**
 	A UIViewController property that references the 
@@ -280,23 +280,23 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	A CGFloat property to access the width that the leftView
 	opens up to.
 	*/
-	@IBInspectable public private(set) var leftViewWidth: CGFloat = .iPhone == MaterialDevice.type ? 280 : 320
+	@IBInspectable public private(set) var leftViewWidth: CGFloat!
 	
 	/**
 	A CGFloat property to access the width that the rightView
 	opens up to.
 	*/
-	@IBInspectable public private(set) var rightViewWidth: CGFloat = .iPhone == MaterialDevice.type ? 280 : 320
+	@IBInspectable public private(set) var rightViewWidth: CGFloat!
 	
 	/**
 	An initializer for the SideNavigationController.
-	- Parameter mainViewController: The main UIViewController.
+	- Parameter rootViewController: The main UIViewController.
 	- Parameter leftViewController: An Optional left UIViewController.
 	- Parameter rightViewController: An Optional right UIViewController.
 	*/
-	public convenience init(mainViewController: UIViewController, leftViewController: UIViewController? = nil, rightViewController: UIViewController? = nil) {
+	public convenience init(rootViewController: UIViewController, leftViewController: UIViewController? = nil, rightViewController: UIViewController? = nil) {
 		self.init()
-		self.mainViewController = mainViewController
+		self.rootViewController = rootViewController
 		self.leftViewController = leftViewController
 		self.rightViewController = rightViewController
 		prepareView()
@@ -320,35 +320,37 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	}
 	
 	/**
-	A method to swap mainViewController objects.
+	A method to swap rootViewController objects.
 	- Parameter toViewController: The UIViewController to swap 
-	with the active mainViewController.
+	with the active rootViewController.
 	- Parameter duration: A NSTimeInterval that sets the
 	animation duration of the transition.
 	- Parameter options: UIViewAnimationOptions thst are used 
-	when animating the transition from the active mainViewController
+	when animating the transition from the active rootViewController
 	to the toViewController.
 	- Parameter animations: An animation block that is executed during
-	the transition from the active mainViewController
+	the transition from the active rootViewController
 	to the toViewController.
 	- Parameter completion: A completion block that is execited after
-	the transition animation from the active mainViewController
+	the transition animation from the active rootViewController
 	to the toViewController has completed.
 	*/
-	public func transitionFromMainViewController(toViewController: UIViewController, duration: NSTimeInterval = 0.5, options: UIViewAnimationOptions = [], animations: (() -> Void)? = nil, completion: ((Bool) -> Void)? = nil) {
-		mainViewController.willMoveToParentViewController(nil)
+	public func transitionFromRootViewController(toViewController: UIViewController, duration: NSTimeInterval = 0.5, options: UIViewAnimationOptions = [], animations: (() -> Void)? = nil, completion: ((Bool) -> Void)? = nil) {
+		rootViewController.willMoveToParentViewController(nil)
 		addChildViewController(toViewController)
-		toViewController.view.frame = mainViewController.view.frame
-		transitionFromViewController(mainViewController,
+		toViewController.view.frame = rootViewController.view.frame
+		transitionFromViewController(rootViewController,
 			toViewController: toViewController,
 			duration: duration,
 			options: options,
 			animations: animations,
 			completion: { [unowned self] (result: Bool) in
 				toViewController.didMoveToParentViewController(self)
-				self.mainViewController.removeFromParentViewController()
-				self.mainViewController = toViewController
-				self.view.sendSubviewToBack(self.mainViewController.view)
+				self.rootViewController.removeFromParentViewController()
+				self.rootViewController = toViewController
+				self.rootViewController.view.clipsToBounds = true
+				self.rootViewController.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+				self.view.sendSubviewToBack(self.rootViewController.view)
 				completion?(result)
 			})
 	}
@@ -363,23 +365,25 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	- Parameter animated: A Boolean value that indicates to animate
 	the leftView width change.
 	*/
-	public func setLeftViewWidth(width: CGFloat, var hidden: Bool, animated: Bool, duration: NSTimeInterval = 0.5) {
+	public func setLeftViewWidth(width: CGFloat, hidden: Bool, animated: Bool, duration: NSTimeInterval = 0.5) {
 		if let v: MaterialView = leftView {
 			leftViewWidth = width
 			
+			var hide: Bool = hidden
+			
 			if openedRightView {
-				hidden = true
+				hide = true
 			}
 			
 			if animated {
 				v.shadowPathAutoSizeEnabled = false
 				
-				if hidden {
+				if hide {
 					UIView.animateWithDuration(duration,
 						animations: { [unowned self] in
 							v.bounds.size.width = width
 							v.position.x = -width / 2
-							self.mainViewController.view.alpha = 1
+							self.rootViewController.view.alpha = 1
 						}) { [unowned self] _ in
 							v.shadowPathAutoSizeEnabled = true
 							self.layoutSubviews()
@@ -390,7 +394,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 						animations: { [unowned self] in
 							v.bounds.size.width = width
 							v.position.x = width / 2
-							self.mainViewController.view.alpha = 0.5
+							self.rootViewController.view.alpha = 0.5
 						}) { [unowned self] _ in
 							v.shadowPathAutoSizeEnabled = true
 							self.layoutSubviews()
@@ -399,16 +403,16 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 				}
 			} else {
 				v.bounds.size.width = width
-				if hidden {
+				if hide {
 					hideView(v)
 					v.position.x = -v.width / 2
-					mainViewController.view.alpha = 1
+					rootViewController.view.alpha = 1
 				} else {
 					v.shadowPathAutoSizeEnabled = false
 					
 					showView(v)
 					v.position.x = width / 2
-					mainViewController.view.alpha = 0.5
+					rootViewController.view.alpha = 0.5
 					v.shadowPathAutoSizeEnabled = true
 				}
 				layoutSubviews()
@@ -427,23 +431,25 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	- Parameter animated: A Boolean value that indicates to animate
 	the rightView width change.
 	*/
-	public func setRightViewWidth(width: CGFloat, var hidden: Bool, animated: Bool, duration: NSTimeInterval = 0.5) {
+	public func setRightViewWidth(width: CGFloat, hidden: Bool, animated: Bool, duration: NSTimeInterval = 0.5) {
 		if let v: MaterialView = rightView {
 			rightViewWidth = width
 			
+			var hide: Bool = hidden
+			
 			if openedLeftView {
-				hidden = true
+				hide = true
 			}
 			
 			if animated {
 				v.shadowPathAutoSizeEnabled = false
 				
-				if hidden {
+				if hide {
 					UIView.animateWithDuration(duration,
 						animations: { [unowned self] in
 							v.bounds.size.width = width
 							v.position.x = self.view.bounds.width + width / 2
-							self.mainViewController.view.alpha = 1
+							self.rootViewController.view.alpha = 1
 						}) { [unowned self] _ in
 							v.shadowPathAutoSizeEnabled = true
 							self.layoutSubviews()
@@ -454,7 +460,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 						animations: { [unowned self] in
 							v.bounds.size.width = width
 							v.position.x = self.view.bounds.width - width / 2
-							self.mainViewController.view.alpha = 0.5
+							self.rootViewController.view.alpha = 0.5
 						}) { [unowned self] _ in
 							v.shadowPathAutoSizeEnabled = true
 							self.layoutSubviews()
@@ -463,16 +469,16 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 				}
 			} else {
 				v.bounds.size.width = width
-				if hidden {
+				if hide {
 					hideView(v)
 					v.position.x = view.bounds.width + v.width / 2
-					mainViewController.view.alpha = 1
+					rootViewController.view.alpha = 1
 				} else {
 					v.shadowPathAutoSizeEnabled = false
 					
 					showView(v)
 					v.position.x = view.bounds.width - width / 2
-					mainViewController.view.alpha = 0.5
+					rootViewController.view.alpha = 0.5
 					v.shadowPathAutoSizeEnabled = true
 				}
 				layoutSubviews()
@@ -515,7 +521,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 				showView(v)
 				
 				delegate?.sideNavigationWillOpen?(self, position: .Left)
-				mainViewController.view.alpha = 0.5
+				rootViewController.view.alpha = 0.5
 				UIView.animateWithDuration(Double(0 == velocity ? animationDuration : fmax(0.1, fmin(1, Double(v.x / velocity)))),
 					animations: {
 						v.position.x = v.width / 2
@@ -539,7 +545,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 				showView(v)
 				
 				delegate?.sideNavigationWillOpen?(self, position: .Right)
-				mainViewController.view.alpha = 0.5
+				rootViewController.view.alpha = 0.5
 				UIView.animateWithDuration(Double(0 == velocity ? animationDuration : fmax(0.1, fmin(1, Double(v.x / velocity)))),
 					animations: { [unowned self] in
 						v.position.x = self.view.bounds.width - v.width / 2
@@ -560,7 +566,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 		if enabledLeftView {
 			if let v: MaterialView = leftView {
 				delegate?.sideNavigationWillClose?(self, position: .Left)
-				mainViewController.view.alpha = 1
+				rootViewController.view.alpha = 1
 				UIView.animateWithDuration(Double(0 == velocity ? animationDuration : fmax(0.1, fmin(1, Double(v.x / velocity)))),
 					animations: {
 						v.position.x = -v.width / 2
@@ -583,7 +589,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 		if enabledRightView {
 			if let v: MaterialView = rightView {
 				delegate?.sideNavigationWillClose?(self, position: .Right)
-				mainViewController.view.alpha = 1
+				rootViewController.view.alpha = 1
 				UIView.animateWithDuration(Double(0 == velocity ? animationDuration : fmax(0.1, fmin(1, Double(v.x / velocity)))),
 					animations: { [unowned self] in
 						v.position.x = self.view.bounds.width + v.width / 2
@@ -615,6 +621,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	- Parameter recognizer: A UIPanGestureRecognizer that is
 	passed to the handler when recognized.
 	*/
+	@objc(handlePanGesture:)
 	internal func handlePanGesture(recognizer: UIPanGestureRecognizer) {
 		// Deterine which view to pan.
 		if enabledRightView && (openedRightView || !openedLeftView && isPointContainedWithinRightViewThreshold(recognizer.locationInView(view))) {
@@ -637,7 +644,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 					v.position.x = originalX + translationX < view.bounds.width - (w / 2) ? view.bounds.width - (w / 2) : originalX + translationX
 					
 					let a: CGFloat = 1 - (view.bounds.width - v.position.x) / v.width
-					mainViewController.view.alpha = 0.5 < a ? a : 0.5
+					rootViewController.view.alpha = 0.5 < a ? a : 0.5
 					
 					delegate?.sideNavigationPanDidChange?(self, point: point, position: .Right)
 				case .Ended, .Cancelled, .Failed:
@@ -674,7 +681,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 					v.position.x = originalX + translationX > (w / 2) ? (w / 2) : originalX + translationX
 					
 					let a: CGFloat = 1 - v.position.x / v.width
-					mainViewController.view.alpha = 0.5 < a ? a : 0.5
+					rootViewController.view.alpha = 0.5 < a ? a : 0.5
 					
 					delegate?.sideNavigationPanDidChange?(self, point: point, position: .Left)
 				case .Ended, .Cancelled, .Failed:
@@ -700,6 +707,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	- Parameter recognizer: A UITapGestureRecognizer that is
 	passed to the handler when recognized.
 	*/
+	@objc(handleTapGesture:)
 	internal func handleTapGesture(recognizer: UITapGestureRecognizer) {
 		if openedLeftView {
 			if let v: MaterialView = leftView {
@@ -721,7 +729,8 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	
 	/// A method that generally prepares the SideNavigationController.
 	private func prepareView() {
-		prepareMainViewController()
+		view.clipsToBounds = true
+		prepareRootViewController()
 		prepareLeftView()
 		prepareRightView()
 		prepareLeftViewController()
@@ -729,16 +738,18 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 		prepareGestures()
 	}
 	
-	/// A method that prepares the mainViewController.
-	private func prepareMainViewController() {
-		prepareViewControllerWithinContainer(mainViewController, container: view)
-		mainViewController.view.frame = view.bounds
+	/// A method that prepares the rootViewController.
+	private func prepareRootViewController() {
+		rootViewController.view.clipsToBounds = true
+		rootViewController.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+		prepareViewControllerWithinContainer(rootViewController, container: view)
 	}
 	
 	/// A method that prepares the leftViewController.
 	private func prepareLeftViewController() {
 		if let v: MaterialView = leftView {
 			leftViewController?.view.clipsToBounds = true
+			leftViewController?.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 			prepareViewControllerWithinContainer(leftViewController, container: v)
 		}
 	}
@@ -747,13 +758,17 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	private func prepareRightViewController() {
 		if let v: MaterialView = rightView {
 			rightViewController?.view.clipsToBounds = true
+			leftViewController?.view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 			prepareViewControllerWithinContainer(rightViewController, container: v)
 		}
 	}
 	
 	/// A method that prepares the leftView.
 	private func prepareLeftView() {
-		if nil != leftViewController {
+		if nil == leftViewController {
+			enabledLeftView = false
+		} else {
+			leftViewWidth = .iPhone == MaterialDevice.type ? 280 : 320
 			leftView = MaterialView()
 			leftView!.frame = CGRectMake(0, 0, leftViewWidth, view.frame.height)
 			leftView!.backgroundColor = MaterialColor.clear
@@ -762,14 +777,15 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 			leftView!.hidden = true
 			leftView!.position.x = -leftViewWidth / 2
 			leftView!.zPosition = 2000
-		} else {
-			enabledLeftView = false
 		}
 	}
 	
 	/// A method that prepares the leftView.
 	private func prepareRightView() {
-		if nil != rightViewController {
+		if nil == rightViewController {
+			enabledRightView = false
+		} else {
+			rightViewWidth = .iPhone == MaterialDevice.type ? 280 : 320
 			rightView = MaterialView()
 			rightView!.frame = CGRectMake(0, 0, rightViewWidth, view.frame.height)
 			rightView!.backgroundColor = MaterialColor.clear
@@ -778,8 +794,6 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 			rightView!.hidden = true
 			rightView!.position.x = view.bounds.width + rightViewWidth / 2
 			rightView!.zPosition = 2000
-		} else {
-			enabledRightView = false
 		}
 	}
 	
@@ -795,6 +809,7 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 		if let v: UIViewController = viewController {
 			addChildViewController(v)
 			container.addSubview(v.view)
+			container.sendSubviewToBack(v.view)
 			v.didMoveToParentViewController(self)
 		}
 	}
@@ -805,13 +820,13 @@ public class SideNavigationController : UIViewController, UIGestureRecognizerDel
 	*/
 	private func prepareGestures() {
 		if nil == panGesture {
-			panGesture = UIPanGestureRecognizer(target: self, action: "handlePanGesture:")
+			panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture))
 			panGesture!.delegate = self
 			view.addGestureRecognizer(panGesture!)
 		}
 		
 		if nil == tapGesture {
-			tapGesture = UITapGestureRecognizer(target: self, action: "handleTapGesture:")
+			tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
 			tapGesture!.delegate = self
 			tapGesture!.cancelsTouchesInView = false
 			view.addGestureRecognizer(tapGesture!)

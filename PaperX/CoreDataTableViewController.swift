@@ -44,6 +44,33 @@ class CoreDataTableViewController: UITableViewController, NSFetchedResultsContro
         }
     }
     
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return .Delete
+    }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        self.tableView!.setEditing(editing, animated: animated)
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            /* First remove this object from the source */
+            LOG.debug(" row \(indexPath.row)")
+            self.removeTableRow(indexPath)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+        }
+    }
+    
+
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true 
+    }
+   
+    func removeTableRow(indexPath: NSIndexPath) {
+    }
+    
     override func sectionIndexTitlesForTableView(tableView: UITableView) -> [String]? {
         return fetchedResultsController?.sectionIndexTitles
     }

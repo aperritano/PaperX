@@ -7,3 +7,17 @@
 //
 
 import Foundation
+import UIKit
+
+class CloudUIDocumentPickerViewController : UIDocumentPickerViewController {
+    
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return false
+    }
+
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+}

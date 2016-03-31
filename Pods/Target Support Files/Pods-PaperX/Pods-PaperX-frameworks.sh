@@ -86,22 +86,24 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-PaperX/Cartography.framework"
   install_framework "Pods-PaperX/Dollar.framework"
+  install_framework "Pods-PaperX/GCDKit.framework"
   install_framework "Pods-PaperX/Koloda.framework"
   install_framework "Pods-PaperX/Material.framework"
   install_framework "Pods-PaperX/RandomKit.framework"
   install_framework "Pods-PaperX/ReactiveUI.framework"
-  install_framework "Pods-PaperX/UIColor_FlatColors.framework"
+  install_framework "Pods-PaperX/XCGLogger.framework"
   install_framework "Pods-PaperX/performSelector_swift.framework"
   install_framework "Pods-PaperX/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-PaperX/Cartography.framework"
   install_framework "Pods-PaperX/Dollar.framework"
+  install_framework "Pods-PaperX/GCDKit.framework"
   install_framework "Pods-PaperX/Koloda.framework"
   install_framework "Pods-PaperX/Material.framework"
   install_framework "Pods-PaperX/RandomKit.framework"
   install_framework "Pods-PaperX/ReactiveUI.framework"
-  install_framework "Pods-PaperX/UIColor_FlatColors.framework"
+  install_framework "Pods-PaperX/XCGLogger.framework"
   install_framework "Pods-PaperX/performSelector_swift.framework"
   install_framework "Pods-PaperX/pop.framework"
 fi

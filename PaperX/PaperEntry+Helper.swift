@@ -4,7 +4,97 @@
 //
 //  Created by Anthony Perritano on 3/13/16.
 //  Copyright © 2016 so.raven. All rights reserved.
-//TY  - CONF
+//
+
+import Foundation
+
+
+extension PaperEntry {
+    
+    func populateEndnote( properties: [String:AnyObject]) {
+        self.rawEntry = properties
+        self.entryType = properties["TY"] as? String
+        self.abstract = properties["AB"] as? String
+        self.acmid = properties["UR"] as? String
+        self.authors = properties["A1"] as? [String]
+        self.title = properties["T1"] as? String
+        self.inproceeding = properties["T2"] as? String
+        self.published = properties["PY"] as? String
+        self.volume = properties["VL"] as? String
+        self.startPage = properties["SP"] as? String
+        self.endPage = properties["EP"] as? String
+        self.doi = properties["UR"] as? String
+        self.databaseURL = properties["DP"] as? String
+        self.databasePublisher = properties["DB"] as? String
+        self.keywords = properties["KW"] as? String
+    }
+
+    func toEndnoteString() -> String {
+        var entry = String()
+        
+        if let ty = self.entryType {
+            entry +=  "TY  - \(ty)\n"
+        }
+
+        //authors
+        
+        if ( (self.authors as! [String]).count > 0) {
+            for a in self.authors as! [String]  {
+                entry +=  "A1  - \(a)\n"
+            }
+        }
+        
+        if let t1 = self.title {
+            entry += "T1  - \(t1)\n"
+        }
+        
+        if let t2 = self.inproceeding {
+            entry += "T2  - \(t2)\n"
+        }
+
+        if let py = self.published {
+            entry += "PY  - \(py)\n"
+        }
+        
+        if let vl = self.volume {
+            entry +=  "VL  - \(vl)\n"
+        }
+        
+        if let sp = self.startPage {
+            entry +=  "SP  - \(sp)\n"
+        }
+        
+        if let ep = self.endPage {
+            entry +=  "EP  - \(ep)\n"
+        }
+        
+        if let ur = self.acmid {
+            entry +=  "UR  - \(ur)\n"
+        }
+        
+        if let ab = self.abstract {
+            entry += "AB  - \(ab)\n"
+        }
+        
+        if let dp = self.databaseURL {
+            entry +=  "DP  - \(dp)\n"
+        }
+        
+        if let db = self.databasePublisher {
+            entry += "DB  - \(db)\n"
+        }
+        
+        if let kw = self.keywords {
+            entry += "KW  - \(kw)\n"
+        }
+        
+
+        entry += "ER  - \n"
+
+        return entry
+    }
+
+    //TY  - CONF
 //T1  - Metaphone: machine aesthetics meets interaction design
 //A1  - &Scaron;imbelis, Vygandas
 //A1  - Lundstr&ouml;m, Anders
@@ -35,51 +125,5 @@
 //DB  - HCI Bibliography
 //ER  -
 
-
-//
-
-import Foundation
-
-
-extension PaperEntry {
-    
-    func populateEndnote( properties: [String:AnyObject]) {
-        self.rawEntry = properties
-        self.entryType = properties["TY"] as? String
-        self.abstract = properties["AB"] as? String
-        self.acmid = properties["UR"] as? String
-        self.authors = properties["A1"] as? [String]
-        self.title = properties["T1"] as? String
-        self.inproceeding = properties["T2"] as? String
-        self.published = properties["PY"] as? String
-        self.volume = properties["VL"] as? String
-        self.startPage = properties["SP"] as? String
-        self.endPage = properties["EP"] as? String
-        self.doi = properties["UI"] as? String
-        self.databaseURL = properties["DP"] as? String
-        self.databasePublisher = properties["DB"] as? String
-    }
-    
-//    @NSManaged var abstract: String?
-//    @NSManaged var acmid: String?
-//    @NSManaged var address: String?
-//    @NSManaged var author: String?
-//    @NSManaged var booktitle: String?
-//    @NSManaged var doi: String?
-//    @NSManaged var inproceeding: String?
-//    @NSManaged var isbn: String?
-//    @NSManaged var keywords: String?
-//    @NSManaged var last_modified: NSDate?
-//    @NSManaged var location: String?
-//    @NSManaged var numpages: String?
-//    @NSManaged var pages: String?
-//    @NSManaged var publisher: String?
-//    @NSManaged var series: String?
-//    @NSManaged var title: String?
-//    @NSManaged var url: String?
-//    @NSManaged var year: String?
-//    @NSManaged var isLiked: NSNumber?
-//    @NSManaged var isRead: NSNumber?
-//    @NSManaged var parent: Session?
     
 }

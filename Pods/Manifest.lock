@@ -1,34 +1,37 @@
 PODS:
   - Cartography (0.6.0)
   - Dollar (5.0.0)
+  - GCDKit (1.2.2)
   - Koloda (2.0.10):
     - pop (~> 1.0)
-  - Material (1.37.2)
+  - Material (1.38.1)
   - performSelector-swift (0.1.0)
   - pop (1.0.9)
   - RandomKit (1.6.0)
   - ReactiveUI (0.0.3)
-  - UIColor+FlatColors (0.0.2)
+  - XCGLogger (3.3)
 
 DEPENDENCIES:
   - Cartography
   - Dollar
+  - GCDKit
   - Koloda
   - Material (~> 1.0)
   - performSelector-swift
   - RandomKit (~> 1.6.0)
   - ReactiveUI
-  - UIColor+FlatColors
+  - XCGLogger
 
 SPEC CHECKSUMS:
   Cartography: 70af183a248547694a8cfaa6b989cb7e04589985
   Dollar: 310893dd6b3799b9b155e3deb61a0492987e4d03
+  GCDKit: 15e3d514cbf5d56699b2716b798031f778fb48c2
   Koloda: 10f747feeff5e425061f78e5ce17208783e34a99
-  Material: 81cebd93bbb49c1cc176403649cb676125141f09
+  Material: b23d563687302913bd3a868c6a4814ce1638e08a
   performSelector-swift: 676d3dab420ed7e1505a7cdaf35e5741509cdd3c
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   RandomKit: 9b33ce5fc448056e8ddaaef655da315b26f23e32
   ReactiveUI: 05d1f5d884e5a2496a2cd2ac6c0ed35ab0218c02
-  UIColor+FlatColors: 6c699df7a575281794c688c64cee6c44fd1f93b4
+  XCGLogger: d6e196e78940ff6daab17d6917107876f973fa31
 
 COCOAPODS: 0.39.0

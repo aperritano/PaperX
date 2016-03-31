@@ -37,6 +37,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
+                                            <color key="shadowColor" red="0.81525619240000002" green="0.81525619240000002" blue="0.81525619240000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="FdX-YS-idV"/>
@@ -119,6 +120,7 @@
                                             </variation>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="QyQ-Zl-bEe" firstAttribute="firstBaseline" secondItem="dMd-Xd-Axg" secondAttribute="firstBaseline" id="54M-cc-Kx0"/>
                                         <constraint firstItem="A1b-rP-MtK" firstAttribute="top" secondItem="knE-4K-tf5" secondAttribute="topMargin" constant="9" id="8D4-Lw-Fnw">
@@ -194,7 +196,7 @@
                                     <outlet property="timestampLabel" destination="QyQ-Zl-bEe" id="R0A-ba-NLi"/>
                                     <outlet property="titleLabel" destination="A1b-rP-MtK" id="Kjd-bq-8tg"/>
                                     <outlet property="totalPaper" destination="dMd-Xd-Axg" id="57Y-4W-lGd"/>
-                                    <segue destination="Je6-SA-M33" kind="show" id="6wS-05-Ip5"/>
+                                    <segue destination="kM3-jU-MBG" kind="show" id="BYr-YG-1ir"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -216,69 +218,6 @@
             </objects>
             <point key="canvasLocation" x="221" y="913.5"/>
         </scene>
-        <!--Session Details View Controller-->
-        <scene sceneID="W1M-49-mGW">
-            <objects>
-                <tableViewController id="dqt-mB-JTI" customClass="SessionDetailsViewController" customModule="PaperX" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="D3f-BJ-lIi">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="papersCell" textLabel="gYG-DU-37f" detailTextLabel="MAW-zf-gko" style="IBUITableViewCellStyleSubtitle" id="h65-RD-ztE">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="h65-RD-ztE" id="hLq-IE-S6y">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gYG-DU-37f">
-                                            <rect key="frame" x="15" y="7" width="26.5" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MAW-zf-gko">
-                                            <rect key="frame" x="15" y="23" width="40.5" height="13.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <sections/>
-                        <connections>
-                            <outlet property="dataSource" destination="dqt-mB-JTI" id="kyd-3K-e7M"/>
-                            <outlet property="delegate" destination="dqt-mB-JTI" id="Mpp-0Y-CUb"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NRF-76-IZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1236" y="406.5"/>
-        </scene>
-        <!--Swipeable View Controller-->
-        <scene sceneID="MIR-FG-Stj">
-            <objects>
-                <viewController id="IZh-sn-4n3" customClass="ZLSwipeableViewController" customModule="PaperX" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="X8c-V0-I97"/>
-                        <viewControllerLayoutGuide type="bottom" id="Eb5-EB-CSd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="R3W-B2-KTO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xiv-0E-tAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1964" y="1311.75"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="xoN-cT-tQp">
             <objects>
@@ -295,80 +234,89 @@
             </objects>
             <point key="canvasLocation" x="-599" y="914"/>
         </scene>
-        <!--CardUI View Controller-->
-        <scene sceneID="itW-bm-rcv">
+        <!--Title-->
+        <scene sceneID="a5W-f2-iUt">
             <objects>
-                <viewController id="Je6-SA-M33" customClass="CardUIViewController" customModule="PaperX" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kM3-jU-MBG" customClass="CardUIViewController" customModule="PaperX" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="RHz-so-bqU"/>
-                        <viewControllerLayoutGuide type="bottom" id="n4b-Hd-TtI"/>
+                        <viewControllerLayoutGuide type="top" id="8mK-Ni-W8S"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Uf-U4-so9"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="stF-iM-kJr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <view key="view" contentMode="scaleToFill" id="jBn-5x-2uk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nf-SD-gUL">
-                                <rect key="frame" x="160" y="504" width="1" height="34"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dck-I4-uOm" customClass="CustomKolodaView" customModule="PaperX" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuN-I9-DdA">
+                                <rect key="frame" x="202" y="544" width="48" height="48"/>
+                                <color key="tintColor" red="0.54901960780000003" green="0.54901960780000003" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_delete_48pt">
+                                    <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="leftButtonTapped:" destination="kM3-jU-MBG" eventType="touchUpInside" id="Mk9-kJ-wTh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BGc-aS-0e4">
+                                <rect key="frame" x="351" y="544" width="48" height="48"/>
+                                <color key="tintColor" red="0.93333333330000001" green="0.16862745100000001" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="ic_favorite_48pt">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rightButtonTapped:" destination="kM3-jU-MBG" eventType="touchUpInside" id="pzo-X5-A91"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knw-CU-6sr">
+                                <rect key="frame" x="300" y="536" width="1" height="34"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="1" id="X1g-A6-cBj"/>
-                                    <constraint firstAttribute="height" constant="34" id="iWZ-PS-4hS"/>
+                                    <constraint firstAttribute="height" constant="34" id="0QN-Rb-x6O"/>
+                                    <constraint firstAttribute="width" constant="1" id="id9-O2-sIp"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ibc-Yc-pm4" customClass="CustomKolodaView" customModule="PaperX" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="74" width="320" height="494"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sIO-u9-EgC">
-                                <rect key="frame" x="211" y="520" width="38" height="34"/>
-                                <state key="normal" image="ic_like">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="rightButtonTapped:" destination="Je6-SA-M33" eventType="touchUpInside" id="oHg-Vs-eZ6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lEl-O2-7v4">
-                                <rect key="frame" x="76" y="520" width="34" height="34"/>
-                                <state key="normal" image="ic_skip">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="leftButtonTapped:" destination="Je6-SA-M33" eventType="touchUpInside" id="JI0-jE-c9B"/>
-                                </connections>
-                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="n4b-Hd-TtI" firstAttribute="top" secondItem="lEl-O2-7v4" secondAttribute="bottom" constant="14" id="4tg-Ot-B5I"/>
-                            <constraint firstAttribute="bottom" secondItem="Ibc-Yc-pm4" secondAttribute="bottom" id="7yv-Ma-ccp"/>
-                            <constraint firstItem="Ibc-Yc-pm4" firstAttribute="top" secondItem="RHz-so-bqU" secondAttribute="bottom" constant="64" id="99j-ih-jXd"/>
-                            <constraint firstItem="Ibc-Yc-pm4" firstAttribute="top" secondItem="RHz-so-bqU" secondAttribute="bottom" constant="10" id="CYE-Q0-frX"/>
-                            <constraint firstItem="sIO-u9-EgC" firstAttribute="leading" secondItem="5nf-SD-gUL" secondAttribute="trailing" constant="50" id="K20-Kt-Kvj"/>
-                            <constraint firstItem="Ibc-Yc-pm4" firstAttribute="leading" secondItem="stF-iM-kJr" secondAttribute="leading" id="Ua0-Oh-LOA"/>
-                            <constraint firstAttribute="trailing" secondItem="Ibc-Yc-pm4" secondAttribute="trailing" id="XB5-x7-WOO"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="5nf-SD-gUL" secondAttribute="bottom" constant="30" id="ZAE-ZV-O3X"/>
-                            <constraint firstItem="5nf-SD-gUL" firstAttribute="leading" secondItem="lEl-O2-7v4" secondAttribute="trailing" constant="50" id="ciy-28-qTx"/>
-                            <constraint firstItem="lEl-O2-7v4" firstAttribute="top" secondItem="sIO-u9-EgC" secondAttribute="top" id="gaP-PE-A8a"/>
-                            <constraint firstAttribute="centerX" secondItem="5nf-SD-gUL" secondAttribute="centerX" id="llg-oL-KK8"/>
+                            <constraint firstItem="7Uf-U4-so9" firstAttribute="top" secondItem="knw-CU-6sr" secondAttribute="bottom" constant="30" id="5Lq-sb-ujQ"/>
+                            <constraint firstItem="Dck-I4-uOm" firstAttribute="top" secondItem="8mK-Ni-W8S" secondAttribute="bottom" constant="64" id="8PB-OQ-RMC"/>
+                            <constraint firstItem="Dck-I4-uOm" firstAttribute="leading" secondItem="jBn-5x-2uk" secondAttribute="leading" id="8h1-fd-bgt"/>
+                            <constraint firstItem="BGc-aS-0e4" firstAttribute="leading" secondItem="knw-CU-6sr" secondAttribute="trailing" constant="50" id="ATB-0v-EF9"/>
+                            <constraint firstItem="knw-CU-6sr" firstAttribute="leading" secondItem="uuN-I9-DdA" secondAttribute="trailing" constant="50" id="Bff-bl-Lbg"/>
+                            <constraint firstItem="Dck-I4-uOm" firstAttribute="top" secondItem="8mK-Ni-W8S" secondAttribute="bottom" id="NXf-8v-9HO"/>
+                            <constraint firstItem="BGc-aS-0e4" firstAttribute="top" secondItem="knw-CU-6sr" secondAttribute="top" constant="8" id="R4c-5v-lPa"/>
+                            <constraint firstAttribute="bottom" secondItem="Dck-I4-uOm" secondAttribute="bottom" id="fZE-Pv-wPx"/>
+                            <constraint firstItem="knw-CU-6sr" firstAttribute="top" secondItem="uuN-I9-DdA" secondAttribute="top" constant="-8" id="m6D-XI-4ke"/>
+                            <constraint firstAttribute="centerX" secondItem="knw-CU-6sr" secondAttribute="centerX" id="oXm-6H-sgz"/>
+                            <constraint firstAttribute="trailing" secondItem="Dck-I4-uOm" secondAttribute="trailing" id="w6z-pl-VEo"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="99j-ih-jXd"/>
+                                <exclude reference="8PB-OQ-RMC"/>
                             </mask>
                         </variation>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <navigationItem key="navigationItem" title="Title" id="vzQ-e1-RyO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="9Kn-oW-IkT">
+                            <connections>
+                                <action selector="shareLikedPapers:" destination="kM3-jU-MBG" id="lcq-dX-lVg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="kolodaView" destination="Ibc-Yc-pm4" id="9yf-XG-vk2"/>
+                        <outlet property="kolodaView" destination="Dck-I4-uOm" id="CbC-PT-MQh"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f0D-Kd-ZEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D9s-bK-aga" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="924"/>
+            <point key="canvasLocation" x="928" y="959"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ic_like" width="38" height="34"/>
-        <image name="ic_skip" width="34" height="34"/>
+        <image name="ic_delete_48pt" width="48" height="48"/>
+        <image name="ic_favorite_48pt" width="48" height="48"/>
     </resources>
 </document>

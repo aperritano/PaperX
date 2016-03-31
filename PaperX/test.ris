@@ -83,3 +83,244 @@ one of their usage domains.
 DP  - http://hcibib.org
 DB  - HCI Bibliography
 ER  -
+TY  - CONF
+T1  - Tangible bits: beyond pixels
+A1  - Ishii, Hiroshi
+T2  - Proceedings of the 2nd International Conference on Tangible and Embedded
+Interaction
+PY  - 2008/02/18
+SP  - xv
+EP  - xxv
+KW  - ambient media, augmented reality, interaction design, tangible user
+interfaces, ubiquitous computing
+UR  - http://doi.acm.org/10.1145/1347390.1347392
+AB  - Tangible user interfaces (TUIs) provide physical form to digital information
+and computation, facilitating the direct manipulation of bits. Our goal in TUI
+development is to empower collaboration, learning, and design by using digital
+technology and at the same time taking advantage of human abilities to grasp
+and manipulate physical objects and materials. This paper discusses a model of
+TUI, key properties, genres, applications, and summarizes the contributions
+made by the Tangible Media Group and other researchers since the publication of
+the first Tangible Bits paper at CHI 1997. http://tangible.media.mit.edu/
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - AudioCubes: a distributed cube tangible interface based on interaction range
+for sound design
+A1  - Schiettecatte, Bert
+A1  - Vanderdonckt, Jean
+T2  - Proceedings of the 2nd International Conference on Tangible and Embedded
+Interaction
+PY  - 2008/02/18
+SP  - 3
+EP  - 10
+KW  - contextor, interaction range, interface coupling, sound design, tangible
+user interface
+UR  - http://doi.acm.org/10.1145/1347390.1347394
+AB  - AudioCubes is a novel tangible user interface allowing any person interested
+by sound design such as sound creators, and music trainers to intuitively
+explore and create dynamically changing sound. A new sound is created by
+manipulating distributed cube tangible user interface that can be coupled
+wirelessly by locating them in the interaction range of each other on a table.
+At any time, a sound processing network combines operational properties of
+AudioCubes, such as location on a plane or in space, movement, arrangement with
+other cubes, and layout. Sound algorithm parameters and the configuration of
+the sound processing network can be changed simultaneously, allowing a fast and
+convenient exploration of sound creation space that creates a new interaction
+technique for creating sounds.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - Gesture recognition with a Wii controller
+A1  - Schl&ouml;mer, Thomas
+A1  - Poppinga, Benjamin
+A1  - Henze, Niels
+A1  - Boll, Susanne
+T2  - Proceedings of the 2nd International Conference on Tangible and Embedded
+Interaction
+PY  - 2008/02/18
+SP  - 11
+EP  - 14
+KW  - Wiimote, gesture recognition, tangible user interfaces
+UR  - http://doi.acm.org/10.1145/1347390.1347395
+AB  - In many applications today user interaction is moving away from mouse and
+pens and is becoming pervasive and much more physical and tangible. New
+emerging interaction technologies allow developing and experimenting with new
+interaction methods on the long way to providing intuitive human computer
+interaction. In this paper, we aim at recognizing gestures to interact with an
+application and present the design and evaluation of our sensor-based gesture
+recognition. As input device we employ the Wii-controller (Wiimote) which
+recently gained much attention world wide. We use the Wiimote's acceleration
+sensor independent of the gaming console for gesture recognition. The system
+allows the training of arbitrary gestures by users which can then be recalled
+for interacting with systems like photo browsing on a home TV. The developed
+library exploits Wii-sensor data and employs a hidden Markov model for training
+and recognizing user-chosen gestures. Our evaluation shows that we can already
+recognize gestures with a small number of training samples. In addition to the
+gesture recognition we also present our experiences with the Wii-controller and
+the implementation of the gesture recognition. The system forms the basis for
+our ongoing work on multimodal intuitive media browsing and are available to
+other researchers in the field.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - Studying applications for touch-enabled mobile phone keypads
+A1  - Holleis, Paul
+A1  - Huhtala, Jussi
+A1  - H&auml;kkil&auml;, Jonna
+T2  - Proceedings of the 2nd International Conference on Tangible and Embedded
+Interaction
+PY  - 2008/02/18
+SP  - 15
+EP  - 18
+KW  - capacitive touch sensing, haptic input, mobile phone interaction, small
+device user interface, user studies
+UR  - http://doi.acm.org/10.1145/1347390.1347396
+AB  - We present a platform to evaluate mobile phone applications that make use of
+an additional dimension for key presses. Using capacitive sensors on each key,
+merely touching buttons as well as the force of the press can be measured. A
+set of applications well known from current mobile phones has been extended
+with functionality exploiting those new possibilities. The results of a study
+undertaken with this prototype are presented and conclusions are drawn for the
+design and implementation of such applications.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - Using actuated devices in location-aware systems
+A1  - Fraser, Mike
+A1  - Cater, Kirsten
+A1  - Duff, Paul
+T2  - Proceedings of the 2nd International Conference on Tangible and Embedded
+Interaction
+PY  - 2008/02/18
+SP  - 19
+EP  - 26
+KW  - actuators, human-robot interaction, location awareness, physicality,
+pointing, robotics
+UR  - http://doi.acm.org/10.1145/1347390.1347397
+AB  - Location-aware systems have traditionally left mobility to the user through
+carrying, supporting and manipulating the device itself. This design choice has
+limited the scale and style of device to corresponding weight and form
+constraints. This paper presents a project introducing school children to
+location aware systems. We observed that it is hard to notice, physically grasp
+and simultaneously share these small personal devices in groups. These
+behaviours are partly grounded in the physical device design, but also in the
+location awareness model itself, which provides information 'right here' while
+the children are looking around and about them. These observations lead us to
+suggest the alternative model of pointing at locations so that they can be
+noticed and experienced by groups in public places. We further build this
+location model into the device itself by introducing actuated components from
+robotics to make a location-aware device called 'Limbot' that can be physically
+pointed. A preliminary study of the Limbot with the school children indicates
+rich sharing behaviours, but that user control of actuation at all points is
+critical to the ultimate success of our approach, and further exploration of
+our location model is required.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - Marble track audio manipulator (MTAM): a tangible user interface for audio
+composition
+A1  - Bean, Alex
+A1  - Siddiqi, Sabina
+A1  - Chowdhury, Anila
+A1  - Whited, Billy
+A1  - Shaer, Orit
+A1  - Jacob, Robert J. K.
+T2  - Proceedings of the 2nd International Conference on Tangible and Embedded
+Interaction
+PY  - 2008/02/18
+SP  - 27
+EP  - 30
+KW  - augmented construction kit, children, music, tangible user interface
+UR  - http://doi.acm.org/10.1145/1347390.1347398
+AB  - We created a tangible user interface that allows children to create musical
+compositions through constructive play. Our Marble Track Audio Manipulator
+(MTAM) is an augmented marble tower construction kit where marbles represent
+sound clips and tracks represent different sound effects. To create musical
+compositions, children collaboratively build a marble tower and then play their
+compositions by dropping marbles into the tower. As marbles roll through the
+tower children can interact with the marbles and thus improvise and alter their
+musical compositions. By augmenting a popular toy, physically representing
+sound clips and effects as well as allowing improvisation, the MTAM system
+provides children with a creative, playful, and engaging encounter with music.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - A tangible interface for browsing digital photo collections
+A1  - Hsu, Shuo Hsiu
+A1  - Jumpertz, Sylvie
+A1  - Cubaud, Pierre
+T2  - Proceedings of the 2nd International Conference on Tangible and Embedded
+Interaction
+PY  - 2008/02/18
+SP  - 31
+EP  - 32
+KW  - collection, gestures, hand kinematics, image browsing
+UR  - http://doi.acm.org/10.1145/1347390.1347399
+AB  - We present a design concept of a tangible user interface for browsing image
+contents. A layer structure for image presentation and three kinematical
+gestures are proposed to facilitate navigation in the digital photo
+collections. We describe how gestures support the photo browsing and how the
+visual display is synchronized with gestures.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - WiiArts: creating collaborative art experience with WiiRemote interaction
+A1  - Lee, Hyun-Jean
+A1  - Kim, Hyungsin
+A1  - Gupta, Gaurav
+A1  - Mazalek, Ali
+T2  - Proceedings of the 2nd International Conference on Tangible and Embedded
+Interaction
+PY  - 2008/02/18
+SP  - 33
+EP  - 36
+KW  - WiiRemotes, collaboration, creative and expressive art experiences,
+interactive video and sound, multi-user interaction
+UR  - http://doi.acm.org/10.1145/1347390.1347400
+AB  - WiiArts is an experimental video, audio and image processing art project
+that makes use of pre-existing sensing technologies provided by Nintendo
+WiiRemotes and a Sensor Bar. Currently, most WiiRemote-based physical
+interactions have been designed to mimic the gesture of body movement in sports
+and other action-based games. These Wii games are generally competitive in
+nature, and players interact by responding to predefined interaction rules in
+either a single-user or multi-user mode. Making use of the WiiRemote as a
+pre-existing tangible and embedded interface, we explore applications that can
+engage participants in active and expressive art creation in a collaborative
+manner. In this paper, we describe several prototype applications based on this
+concept: Illumination (draWiing), Beneath (Waldo), WiiBand, Time Ripples. In
+these applications, three interactors can work together to compose both images
+and sounds.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -
+TY  - CONF
+T1  - Posey: instrumenting a poseable hub and strut construction toy
+A1  - Weller, Michael Philetus
+A1  - Do, Ellen Yi-Luen
+A1  - Gross, Mark D.
+T2  - Proceedings of the 2nd International Conference on Tangible and Embedded
+Interaction
+PY  - 2008/02/18
+SP  - 39
+EP  - 46
+KW  - construction kits, poseable, tangible, toys
+UR  - http://doi.acm.org/10.1145/1347390.1347402
+AB  - We describe Posey, a computationally-enhanced hub-and-strut construction kit
+for learning and play. Posey employs a ball and socket connection that allows
+users to move the parts of an assembled model. Hubs and struts are optocoupled
+through the ball and socket joints using infrared LEDs and photosensors.
+Wireless transmitters in the hubs send connection and geometry information to a
+host computer. The host computer assembles a representation of the physical
+model as the user creates and configures it. Application programs can then use
+this representation to control computational models in particular domains.
+DP  - http://hcibib.org
+DB  - HCI Bibliography
+ER  -

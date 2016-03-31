@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7023C0061C95DBF900D63D95 /* PaperEntry+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7023C0051C95DBF900D63D95 /* PaperEntry+Helper.swift */; };
 		7023C0091C95EAE700D63D95 /* RISFileParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7023C0081C95EAE700D63D95 /* RISFileParser.swift */; };
+		70291A461CA61F1300038C22 /* VerticalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70291A451CA61F1300038C22 /* VerticalTextView.swift */; };
 		703D64D11C98BFE100BF4FDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703D64D01C98BFE100BF4FDD /* AppDelegate.swift */; };
 		703D64D31C98BFE100BF4FDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703D64D21C98BFE100BF4FDD /* ViewController.swift */; };
 		703D64D81C98BFE100BF4FDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 703D64D71C98BFE100BF4FDD /* Assets.xcassets */; };
@@ -31,12 +32,14 @@
 		7072FD961C8941BB0035C06F /* PaperX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7072FD941C8941BB0035C06F /* PaperX.xcdatamodeld */; };
 		7072FD981C8941BB0035C06F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7072FD971C8941BB0035C06F /* Assets.xcassets */; };
 		7072FD9B1C8941BB0035C06F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7072FD991C8941BB0035C06F /* LaunchScreen.storyboard */; };
-		707897C51C9F22F6001E2B62 /* CardUIView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897C41C9F22F6001E2B62 /* CardUIView2.swift */; };
 		707897C71C9F2B1A001E2B62 /* CardUIView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 707897C61C9F2B1A001E2B62 /* CardUIView.xib */; };
 		707897C91C9F2BE6001E2B62 /* CardUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707897C81C9F2BE6001E2B62 /* CardUIView.swift */; };
 		707897CB1C9F34F4001E2B62 /* CHI-full.ris in Resources */ = {isa = PBXBuildFile; fileRef = 707897CA1C9F34F4001E2B62 /* CHI-full.ris */; };
 		70804C841C8B1D3800FBD0A1 /* HeroListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70804C831C8B1D3800FBD0A1 /* HeroListController.swift */; };
 		70804CA71C8BD0F400FBD0A1 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70804CA61C8BD0F400FBD0A1 /* DataController.swift */; };
+		708C78351CA9FFCD00037E92 /* CardUITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 708C78341CA9FFCD00037E92 /* CardUITableViewCell.xib */; };
+		708C78371CA9FFEA00037E92 /* CardUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708C78361CA9FFEA00037E92 /* CardUITableViewCell.swift */; };
+		708C783F1CAA2DF200037E92 /* CloudUIDocumentPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708C783E1CAA2DF200037E92 /* CloudUIDocumentPickerViewController.swift */; };
 		7097E3BD1CA23FF6006D46F4 /* test.ris in Resources */ = {isa = PBXBuildFile; fileRef = 7097E3BC1CA23FF6006D46F4 /* test.ris */; };
 		7098AF851C8A1FF6000DC290 /* SessionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7098AF841C8A1FF6000DC290 /* SessionsTableViewController.swift */; };
 		7098AF871C8A2053000DC290 /* DataStoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7098AF861C8A2053000DC290 /* DataStoreController.swift */; };
@@ -47,19 +50,19 @@
 		70CF9D0E1C9EDC630042C14C /* CustomKolodaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF9D0D1C9EDC630042C14C /* CustomKolodaView.swift */; };
 		70CF9D101C9EDCF30042C14C /* CustomOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF9D0F1C9EDCF30042C14C /* CustomOverlayView.swift */; };
 		70CF9D121C9EDD400042C14C /* CustomOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CF9D111C9EDD400042C14C /* CustomOverlayView.xib */; };
-		70CF9D141C9EDDBB0042C14C /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70CF9D131C9EDDBB0042C14C /* OverlayView.xib */; };
 		70CF9D161C9EDDE60042C14C /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF9D151C9EDDE60042C14C /* ExampleOverlayView.swift */; };
 		70CF9D181C9EE6F30042C14C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF9D171C9EE6F30042C14C /* ViewController.swift */; };
 		70E35FB81C98F970004ABFC7 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E35FB71C98F970004ABFC7 /* CloudKit.framework */; };
 		70EA82911C9DE552003438DD /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EA82901C9DE552003438DD /* NavigationController.swift */; };
 		70EA82931C9DEC38003438DD /* SessionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EA82921C9DEC38003438DD /* SessionTableCell.swift */; };
-		D0D63E891C7DCDA889ECF272 /* Pods_PaperX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA1E2F56334B28F964DE78EE /* Pods_PaperX.framework */; };
+		9F15D9F1F19906942AD119F5 /* Pods_PaperX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F42C7D79BE074BAD6ACA43 /* Pods_PaperX.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C094413951DABABF13AD6B7 /* Pods-PaperX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaperX/Pods-PaperX.debug.xcconfig"; sourceTree = "<group>"; };
+		026A8B1C280E80C79D2A92B1 /* Pods-PaperX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperX.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaperX/Pods-PaperX.release.xcconfig"; sourceTree = "<group>"; };
 		7023C0051C95DBF900D63D95 /* PaperEntry+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaperEntry+Helper.swift"; sourceTree = "<group>"; };
 		7023C0081C95EAE700D63D95 /* RISFileParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RISFileParser.swift; sourceTree = "<group>"; };
+		70291A451CA61F1300038C22 /* VerticalTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalTextView.swift; sourceTree = "<group>"; };
 		703D64CE1C98BFE100BF4FDD /* PaperXOSX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaperXOSX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		703D64D01C98BFE100BF4FDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		703D64D21C98BFE100BF4FDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,12 +83,14 @@
 		7072FD971C8941BB0035C06F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7072FD9A1C8941BB0035C06F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7072FD9C1C8941BB0035C06F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		707897C41C9F22F6001E2B62 /* CardUIView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUIView2.swift; sourceTree = "<group>"; };
 		707897C61C9F2B1A001E2B62 /* CardUIView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardUIView.xib; sourceTree = "<group>"; };
 		707897C81C9F2BE6001E2B62 /* CardUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUIView.swift; sourceTree = "<group>"; };
 		707897CA1C9F34F4001E2B62 /* CHI-full.ris */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CHI-full.ris"; sourceTree = "<group>"; };
 		70804C831C8B1D3800FBD0A1 /* HeroListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroListController.swift; sourceTree = "<group>"; };
 		70804CA61C8BD0F400FBD0A1 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = core_data/DataController.swift; sourceTree = "<group>"; };
+		708C78341CA9FFCD00037E92 /* CardUITableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardUITableViewCell.xib; sourceTree = "<group>"; };
+		708C78361CA9FFEA00037E92 /* CardUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUITableViewCell.swift; sourceTree = "<group>"; };
+		708C783E1CAA2DF200037E92 /* CloudUIDocumentPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudUIDocumentPickerViewController.swift; sourceTree = "<group>"; };
 		7097E3BC1CA23FF6006D46F4 /* test.ris */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.ris; sourceTree = "<group>"; };
 		7098AF841C8A1FF6000DC290 /* SessionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsTableViewController.swift; sourceTree = "<group>"; };
 		7098AF861C8A2053000DC290 /* DataStoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreController.swift; sourceTree = "<group>"; };
@@ -97,15 +102,14 @@
 		70CF9D0D1C9EDC630042C14C /* CustomKolodaView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomKolodaView.swift; sourceTree = "<group>"; };
 		70CF9D0F1C9EDCF30042C14C /* CustomOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomOverlayView.swift; sourceTree = "<group>"; };
 		70CF9D111C9EDD400042C14C /* CustomOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOverlayView.xib; sourceTree = "<group>"; };
-		70CF9D131C9EDDBB0042C14C /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		70CF9D151C9EDDE60042C14C /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
 		70CF9D171C9EE6F30042C14C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		70E35FB71C98F970004ABFC7 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		70E3894A1C94F9D4008F14AC /* TestFilePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = TestFilePlayground.playground; sourceTree = "<group>"; };
 		70EA82901C9DE552003438DD /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		70EA82921C9DEC38003438DD /* SessionTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionTableCell.swift; sourceTree = "<group>"; };
-		82A6CEB2D3F6E413C9AD87F1 /* Pods-PaperX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperX.release.xcconfig"; path = "Pods/Target Support Files/Pods-PaperX/Pods-PaperX.release.xcconfig"; sourceTree = "<group>"; };
-		AA1E2F56334B28F964DE78EE /* Pods_PaperX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaperX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0F42C7D79BE074BAD6ACA43 /* Pods_PaperX.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PaperX.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB583D9F89DB70DF5976D108 /* Pods-PaperX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PaperX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PaperX/Pods-PaperX.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,29 +125,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0D63E891C7DCDA889ECF272 /* Pods_PaperX.framework in Frameworks */,
 				709D881B1C8D1AD900952909 /* CloudKit.framework in Frameworks */,
+				9F15D9F1F19906942AD119F5 /* Pods_PaperX.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1A07D6AB264A7A112647C6BE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5C094413951DABABF13AD6B7 /* Pods-PaperX.debug.xcconfig */,
-				82A6CEB2D3F6E413C9AD87F1 /* Pods-PaperX.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		210F3E95DA5E22C48CE73039 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				70E35FB71C98F970004ABFC7 /* CloudKit.framework */,
 				709D881A1C8D1AD900952909 /* CloudKit.framework */,
-				AA1E2F56334B28F964DE78EE /* Pods_PaperX.framework */,
+				C0F42C7D79BE074BAD6ACA43 /* Pods_PaperX.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -160,7 +155,6 @@
 		702E080E1C97AA68009962E7 /* archive */ = {
 			isa = PBXGroup;
 			children = (
-				707897C41C9F22F6001E2B62 /* CardUIView2.swift */,
 				70CF9D171C9EE6F30042C14C /* ViewController.swift */,
 				70CF9D151C9EDDE60042C14C /* ExampleOverlayView.swift */,
 				7055466A1C8A5CE3000D007A /* CoreDataStackManager.swift */,
@@ -214,8 +208,8 @@
 				7072FD8C1C8941BB0035C06F /* PaperX */,
 				703D64CF1C98BFE100BF4FDD /* PaperXOSX */,
 				7072FD8B1C8941BB0035C06F /* Products */,
-				1A07D6AB264A7A112647C6BE /* Pods */,
 				210F3E95DA5E22C48CE73039 /* Frameworks */,
+				8C59A3BA1EA3C9568AC61784 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,6 +225,7 @@
 		7072FD8C1C8941BB0035C06F /* PaperX */ = {
 			isa = PBXGroup;
 			children = (
+				708C78331CA9FF9A00037E92 /* table */,
 				70CF9D0A1C9EDBEC0042C14C /* cards */,
 				70EA82971C9E258C003438DD /* controllers */,
 				702E080E1C97AA68009962E7 /* archive */,
@@ -255,15 +250,24 @@
 			name = core_data_management;
 			sourceTree = "<group>";
 		};
+		708C78331CA9FF9A00037E92 /* table */ = {
+			isa = PBXGroup;
+			children = (
+				708C78341CA9FFCD00037E92 /* CardUITableViewCell.xib */,
+				708C78361CA9FFEA00037E92 /* CardUITableViewCell.swift */,
+			);
+			name = table;
+			sourceTree = "<group>";
+		};
 		70CF9D0A1C9EDBEC0042C14C /* cards */ = {
 			isa = PBXGroup;
 			children = (
 				70CF9D111C9EDD400042C14C /* CustomOverlayView.xib */,
 				70CF9D0F1C9EDCF30042C14C /* CustomOverlayView.swift */,
-				70CF9D131C9EDDBB0042C14C /* OverlayView.xib */,
 				707897C61C9F2B1A001E2B62 /* CardUIView.xib */,
 				707897C81C9F2BE6001E2B62 /* CardUIView.swift */,
 				70CF9D0D1C9EDC630042C14C /* CustomKolodaView.swift */,
+				70291A451CA61F1300038C22 /* VerticalTextView.swift */,
 			);
 			name = cards;
 			sourceTree = "<group>";
@@ -271,6 +275,7 @@
 		70EA82971C9E258C003438DD /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				708C783E1CAA2DF200037E92 /* CloudUIDocumentPickerViewController.swift */,
 				70CF9D0B1C9EDBF90042C14C /* CardUIViewController.swift */,
 				70EA82901C9DE552003438DD /* NavigationController.swift */,
 				7072FD8F1C8941BB0035C06F /* SessionDetailsViewController.swift */,
@@ -278,6 +283,15 @@
 				70EA82921C9DEC38003438DD /* SessionTableCell.swift */,
 			);
 			name = controllers;
+			sourceTree = "<group>";
+		};
+		8C59A3BA1EA3C9568AC61784 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB583D9F89DB70DF5976D108 /* Pods-PaperX.debug.xcconfig */,
+				026A8B1C280E80C79D2A92B1 /* Pods-PaperX.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,12 +318,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7072FD9F1C8941BB0035C06F /* Build configuration list for PBXNativeTarget "PaperX" */;
 			buildPhases = (
-				AC4F413ACE27F3EBA88934A0 /* Check Pods Manifest.lock */,
+				1EB32DA8A1BACA2805A1DF80 /* 📦 Check Pods Manifest.lock */,
 				7072FD861C8941BB0035C06F /* Sources */,
 				7072FD871C8941BB0035C06F /* Frameworks */,
 				7072FD881C8941BB0035C06F /* Resources */,
-				EB3FD4C8DD3162343989480E /* Embed Pods Frameworks */,
-				EBB1CF676D83AE4788DF3C84 /* Copy Pods Resources */,
+				D418A0652E83622C85002592 /* 📦 Embed Pods Frameworks */,
+				368EED4852944F44569AE548 /* 📦 Copy Pods Resources */,
+				0A7727C02C9F943D0100649D /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -394,8 +409,8 @@
 			files = (
 				707897C71C9F2B1A001E2B62 /* CardUIView.xib in Resources */,
 				7072FD9B1C8941BB0035C06F /* LaunchScreen.storyboard in Resources */,
-				70CF9D141C9EDDBB0042C14C /* OverlayView.xib in Resources */,
 				707897CB1C9F34F4001E2B62 /* CHI-full.ris in Resources */,
+				708C78351CA9FFCD00037E92 /* CardUITableViewCell.xib in Resources */,
 				7097E3BD1CA23FF6006D46F4 /* test.ris in Resources */,
 				70CF9D121C9EDD400042C14C /* CustomOverlayView.xib in Resources */,
 				7072FD981C8941BB0035C06F /* Assets.xcassets in Resources */,
@@ -406,22 +421,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		AC4F413ACE27F3EBA88934A0 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		EB3FD4C8DD3162343989480E /* Embed Pods Frameworks */ = {
+		0A7727C02C9F943D0100649D /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -436,19 +436,49 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PaperX/Pods-PaperX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EBB1CF676D83AE4788DF3C84 /* Copy Pods Resources */ = {
+		1EB32DA8A1BACA2805A1DF80 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		368EED4852944F44569AE548 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PaperX/Pods-PaperX-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D418A0652E83622C85002592 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PaperX/Pods-PaperX-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -478,15 +508,17 @@
 				70EA82931C9DEC38003438DD /* SessionTableCell.swift in Sources */,
 				707897C91C9F2BE6001E2B62 /* CardUIView.swift in Sources */,
 				70EA82911C9DE552003438DD /* NavigationController.swift in Sources */,
-				707897C51C9F22F6001E2B62 /* CardUIView2.swift in Sources */,
 				703DB0E81C8D020C0056500A /* Session+CoreDataProperties.swift in Sources */,
+				708C78371CA9FFEA00037E92 /* CardUITableViewCell.swift in Sources */,
 				7072FD901C8941BB0035C06F /* SessionDetailsViewController.swift in Sources */,
+				70291A461CA61F1300038C22 /* VerticalTextView.swift in Sources */,
 				70CF9D181C9EE6F30042C14C /* ViewController.swift in Sources */,
 				70804C841C8B1D3800FBD0A1 /* HeroListController.swift in Sources */,
 				7072FD961C8941BB0035C06F /* PaperX.xcdatamodeld in Sources */,
 				7098AF851C8A1FF6000DC290 /* SessionsTableViewController.swift in Sources */,
 				7055466B1C8A5CE3000D007A /* CoreDataStackManager.swift in Sources */,
 				70CF9D0C1C9EDBF90042C14C /* CardUIViewController.swift in Sources */,
+				708C783F1CAA2DF200037E92 /* CloudUIDocumentPickerViewController.swift in Sources */,
 				709D821B1C9D00BF00DF2906 /* SwiftHTMLDecode.swift in Sources */,
 				7098AF871C8A2053000DC290 /* DataStoreController.swift in Sources */,
 				7023C0091C95EAE700D63D95 /* RISFileParser.swift in Sources */,
@@ -655,10 +687,12 @@
 		};
 		7072FDA01C8941BB0035C06F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C094413951DABABF13AD6B7 /* Pods-PaperX.debug.xcconfig */;
+			baseConfigurationReference = CB583D9F89DB70DF5976D108 /* Pods-PaperX.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PaperX/PaperX.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = PaperX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = so.raven.PaperX;
@@ -669,10 +703,12 @@
 		};
 		7072FDA11C8941BB0035C06F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82A6CEB2D3F6E413C9AD87F1 /* Pods-PaperX.release.xcconfig */;
+			baseConfigurationReference = 026A8B1C280E80C79D2A92B1 /* Pods-PaperX.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = PaperX/PaperX.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = PaperX/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = so.raven.PaperX;

@@ -11,7 +11,6 @@ import UIKit
 import CoreData
 import CloudKit
 import MobileCoreServices
-import Material
 
 class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDelegate {
 
@@ -104,6 +103,40 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
         }
     }
     
+    override func removeTableRow(indexPath: NSIndexPath) {
+        LOG.debug("\(indexPath.row)")
+        let selectedObject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Session
+        
+        self.dataController!.deleteSession(selectedObject)
+        
+        do {
+            try self.fetchedResultsController.performFetch()
+        } catch {
+            
+        }
+        
+
+//        self.tableView.reloadData()
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+//    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+//        if let sourceViewController = sender.sourceViewController as? MealViewController, meal = sourceViewController.meal {
+//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+//                // Update an existing meal.
+//                meals[selectedIndexPath.row] = meal
+//                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+//            } else {
+//                // Add a new meal.
+//                let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
+//                meals.append(meal)
+//                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+//            }
+//        }
+//    }
+    
     func fetchPaperEntry(uuid: String) {
       
         let fr = NSFetchRequest(entityName: "PaperEntry")
@@ -171,16 +204,24 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     }
     
     @IBAction func addChooseObj(sender: AnyObject) {
-        print("choose object")
-        
-        
-        let documentUTIs: NSArray = [ kUTTypePlainText,  kUTTypeText , kUTTypeContent ]
+        let documentUTIs: NSArray = [ kUTTypePlainText,  kUTTypeText , kUTTypeContent, kUTTypeItem, kUTTypeFileURL, kUTTypeData]
         
 //        kUTTypeXML, kUTTypeLog, kUTTypePDF, kUTTypeItem, kUTTypeFileURL, kUTTypeJSON ]
 
         
-        let documentPickerController = UIDocumentPickerViewController(documentTypes: documentUTIs as! [String], inMode: .Import)
+        let documentPickerController = CloudUIDocumentPickerViewController(documentTypes: documentUTIs as! [String], inMode: .Import)
         documentPickerController.delegate = self
+        documentPickerController.modalPresentationStyle = .FormSheet
+        documentPickerController.modalTransitionStyle = .CoverVertical
+        
+      
+//        documentPickerController.navigationController?.navigationBar
+//        documentPickerController.navigationController?.navigationBar.barStyle = .Black
+//        documentPickerController.navigationController?.navigationBar.barTintColor = UIColor.blackColor()
+//        documentPickerController.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+//        documentPickerController.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        
+//        documentPickerController.navigationController?.navigationBarHidden = true
 
         
         presentViewController(documentPickerController, animated: true, completion: nil)
