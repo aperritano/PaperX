@@ -20,12 +20,6 @@ class CardUIView: UIView {
     
     var shadowAdded: Bool = false
     
-    @IBInspectable var cornerRadius: CGFloat = 0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-            layer.masksToBounds = cornerRadius > 0
-        }
-    }
     
     var paperEntry : PaperEntry?
 

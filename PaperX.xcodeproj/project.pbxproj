@@ -37,9 +37,9 @@
 		707897CB1C9F34F4001E2B62 /* CHI-full.ris in Resources */ = {isa = PBXBuildFile; fileRef = 707897CA1C9F34F4001E2B62 /* CHI-full.ris */; };
 		70804C841C8B1D3800FBD0A1 /* HeroListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70804C831C8B1D3800FBD0A1 /* HeroListController.swift */; };
 		70804CA71C8BD0F400FBD0A1 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70804CA61C8BD0F400FBD0A1 /* DataController.swift */; };
-		708C78351CA9FFCD00037E92 /* CardUITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 708C78341CA9FFCD00037E92 /* CardUITableViewCell.xib */; };
-		708C78371CA9FFEA00037E92 /* CardUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708C78361CA9FFEA00037E92 /* CardUITableViewCell.swift */; };
 		708C783F1CAA2DF200037E92 /* CloudUIDocumentPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708C783E1CAA2DF200037E92 /* CloudUIDocumentPickerViewController.swift */; };
+		709343561CF0069A000C3BF0 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709343551CF0069A000C3BF0 /* UIViewExtensions.swift */; };
+		709343581CF02E2E000C3BF0 /* SessionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709343571CF02E2E000C3BF0 /* SessionTableCell.xib */; };
 		7097E3BD1CA23FF6006D46F4 /* test.ris in Resources */ = {isa = PBXBuildFile; fileRef = 7097E3BC1CA23FF6006D46F4 /* test.ris */; };
 		7098AF851C8A1FF6000DC290 /* SessionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7098AF841C8A1FF6000DC290 /* SessionsTableViewController.swift */; };
 		7098AF871C8A2053000DC290 /* DataStoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7098AF861C8A2053000DC290 /* DataStoreController.swift */; };
@@ -88,9 +88,9 @@
 		707897CA1C9F34F4001E2B62 /* CHI-full.ris */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CHI-full.ris"; sourceTree = "<group>"; };
 		70804C831C8B1D3800FBD0A1 /* HeroListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroListController.swift; sourceTree = "<group>"; };
 		70804CA61C8BD0F400FBD0A1 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataController.swift; path = core_data/DataController.swift; sourceTree = "<group>"; };
-		708C78341CA9FFCD00037E92 /* CardUITableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardUITableViewCell.xib; sourceTree = "<group>"; };
-		708C78361CA9FFEA00037E92 /* CardUITableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardUITableViewCell.swift; sourceTree = "<group>"; };
 		708C783E1CAA2DF200037E92 /* CloudUIDocumentPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudUIDocumentPickerViewController.swift; sourceTree = "<group>"; };
+		709343551CF0069A000C3BF0 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		709343571CF02E2E000C3BF0 /* SessionTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SessionTableCell.xib; sourceTree = "<group>"; };
 		7097E3BC1CA23FF6006D46F4 /* test.ris */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.ris; sourceTree = "<group>"; };
 		7098AF841C8A1FF6000DC290 /* SessionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionsTableViewController.swift; sourceTree = "<group>"; };
 		7098AF861C8A2053000DC290 /* DataStoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreController.swift; sourceTree = "<group>"; };
@@ -233,6 +233,7 @@
 				703DB0D11C8CB6E20056500A /* core_data_entity */,
 				7072FDAA1C894A2D0035C06F /* core_data_management */,
 				7072FD8D1C8941BB0035C06F /* AppDelegate.swift */,
+				709343571CF02E2E000C3BF0 /* SessionTableCell.xib */,
 				70CF9D071C9EDAFF0042C14C /* Main.storyboard */,
 				7072FD941C8941BB0035C06F /* PaperX.xcdatamodeld */,
 				70E3894A1C94F9D4008F14AC /* TestFilePlayground.playground */,
@@ -253,8 +254,6 @@
 		708C78331CA9FF9A00037E92 /* table */ = {
 			isa = PBXGroup;
 			children = (
-				708C78341CA9FFCD00037E92 /* CardUITableViewCell.xib */,
-				708C78361CA9FFEA00037E92 /* CardUITableViewCell.swift */,
 			);
 			name = table;
 			sourceTree = "<group>";
@@ -262,6 +261,7 @@
 		70CF9D0A1C9EDBEC0042C14C /* cards */ = {
 			isa = PBXGroup;
 			children = (
+				709343551CF0069A000C3BF0 /* UIViewExtensions.swift */,
 				70CF9D111C9EDD400042C14C /* CustomOverlayView.xib */,
 				70CF9D0F1C9EDCF30042C14C /* CustomOverlayView.swift */,
 				707897C61C9F2B1A001E2B62 /* CardUIView.xib */,
@@ -408,9 +408,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				707897C71C9F2B1A001E2B62 /* CardUIView.xib in Resources */,
+				709343581CF02E2E000C3BF0 /* SessionTableCell.xib in Resources */,
 				7072FD9B1C8941BB0035C06F /* LaunchScreen.storyboard in Resources */,
 				707897CB1C9F34F4001E2B62 /* CHI-full.ris in Resources */,
-				708C78351CA9FFCD00037E92 /* CardUITableViewCell.xib in Resources */,
 				7097E3BD1CA23FF6006D46F4 /* test.ris in Resources */,
 				70CF9D121C9EDD400042C14C /* CustomOverlayView.xib in Resources */,
 				7072FD981C8941BB0035C06F /* Assets.xcassets in Resources */,
@@ -509,7 +509,6 @@
 				707897C91C9F2BE6001E2B62 /* CardUIView.swift in Sources */,
 				70EA82911C9DE552003438DD /* NavigationController.swift in Sources */,
 				703DB0E81C8D020C0056500A /* Session+CoreDataProperties.swift in Sources */,
-				708C78371CA9FFEA00037E92 /* CardUITableViewCell.swift in Sources */,
 				7072FD901C8941BB0035C06F /* SessionDetailsViewController.swift in Sources */,
 				70291A461CA61F1300038C22 /* VerticalTextView.swift in Sources */,
 				70CF9D181C9EE6F30042C14C /* ViewController.swift in Sources */,
@@ -526,6 +525,7 @@
 				703DB0E91C8D020C0056500A /* Session.swift in Sources */,
 				7072FD8E1C8941BB0035C06F /* AppDelegate.swift in Sources */,
 				703DB0E61C8D020C0056500A /* PaperEntry+CoreDataProperties.swift in Sources */,
+				709343561CF0069A000C3BF0 /* UIViewExtensions.swift in Sources */,
 				703DB0E71C8D020C0056500A /* PaperEntry.swift in Sources */,
 				70CF9D101C9EDCF30042C14C /* CustomOverlayView.swift in Sources */,
 				703DB0D51C8CBB2B0056500A /* CoreDataTableViewController.swift in Sources */,

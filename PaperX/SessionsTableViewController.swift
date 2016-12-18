@@ -12,7 +12,7 @@ import CoreData
 import CloudKit
 import MobileCoreServices
 
-class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDelegate {
+class SessionsTableController: CoreDataTableViewController {
 
 
     let database = CKContainer.defaultContainer().privateCloudDatabase
@@ -59,48 +59,68 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifier = "sessionCell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
-        
         // Configure the cell...
         self.configureCell(cell, indexPath: indexPath)
-        
-        
         return cell
     }
     
 
     // MARK: - UITableViewDataSource
     
-    override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
+    func configureSessionCell(cell: UITableViewCell, indexPath: NSIndexPath) {
         let sessionObj = fetchedResultsController.objectAtIndexPath(indexPath) as! Session
         let sessionCell = cell as! SessionTableCell
         sessionCell.titleLabel?.text = sessionObj.valueForKey("title") as! String!
-    
-        var counts = 0;
+        //
+        var likedCounts = 0
+        var allCounts = 0
         
         if (sessionObj.papers?.count) != nil {
-            
-            sessionCell.totalPaper!.text = "Paper Count \(String(sessionObj.papers!.count))"
             for paperEntry in sessionObj.papers! as! Set<PaperEntry> {
                 //print(" paper entry \(paperEntry.isLiked)")
                 if let liked = paperEntry.isLiked {
+                    
                     if liked == true {
-                     counts += 1
+                        likedCounts += 1
+                        allCounts += 1
+                    } else if liked == false {
+                        allCounts += 1
                     }
                 }
                 
             }
             //print(" we got \(counts) likes")
-            sessionCell.likesLabel.text = "Liked \(counts)"
+            //sessionCell.likesLabel.text = "\(likedCounts) of \(String(sessionObj.papers!.count))"
         }
         
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        formatter.timeStyle = .ShortStyle
-//        
-        if let last_modified = sessionObj.valueForKey("last_modified") {
-            let dateString = formatter.stringFromDate(last_modified as! NSDate)
-            sessionCell.timestampLabel?.text = dateString
+    }
+    
+    override func configureCell(cell: UITableViewCell, indexPath: NSIndexPath) {
+        let sessionObj = fetchedResultsController.objectAtIndexPath(indexPath) as! Session
+        let sessionCell = cell as! SessionTableCell
+        sessionCell.titleLabel?.text = sessionObj.valueForKey("title") as! String!
+//    
+        var likedCounts = 0
+        var allCounts = 0
+        
+        if (sessionObj.papers?.count) != nil {
+            for paperEntry in sessionObj.papers! as! Set<PaperEntry> {
+                //print(" paper entry \(paperEntry.isLiked)")
+                if let liked = paperEntry.isLiked {
+                    
+                    if liked == true {
+                     likedCounts += 1
+                      allCounts += 1
+                    } else if liked == false {
+                        allCounts += 1
+                    }
+                }
+                
+            }
+            //print(" we got \(counts) likes")
+            //sessionCell.likesLabel.text = "\(likedCounts) of \(String(sessionObj.papers!.count))"
         }
+        sessionCell.promoteProfileView()
     }
     
     override func removeTableRow(indexPath: NSIndexPath) {
@@ -122,20 +142,6 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
-//    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
-//        if let sourceViewController = sender.sourceViewController as? MealViewController, meal = sourceViewController.meal {
-//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//                // Update an existing meal.
-//                meals[selectedIndexPath.row] = meal
-//                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
-//            } else {
-//                // Add a new meal.
-//                let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
-//                meals.append(meal)
-//                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-//            }
-//        }
-//    }
     
     func fetchPaperEntry(uuid: String) {
       
@@ -162,20 +168,7 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
       
     }
     
-    //Mark: - UIDocumentPickerDelegate
-    
-    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
-        //print("document picker \(url)")
-        
-        let filename = url.URLByDeletingPathExtension?.lastPathComponent    
-        
-        let items = RISFileParser.readFile(url.path!)
-        
-        //test read
-        
-        self.dataController?.saveResults(filename!, results: items)
-        //parse document
-    }
+
     
     @IBAction func addSessionObj(sender: AnyObject) {
             print("added session")
@@ -263,27 +256,10 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        
-//        /* Store information about a Volvo V50 car */
-//        let volvoV50 = CKRecord(recordType: "Car")
-//        volvoV50.setObject("bob", forKey: "maker")
-//        volvoV50.setObject("V50", forKey: "model")
-//        volvoV50.setObject(5, forKey: "numberOfDoors")
-//        volvoV50.setObject(2015, forKey: "year")
-//        
-//        
-////        fetchPaperEntry("Dfd")
-//        /* Save this record publicly */
-//        
-//        
-//        database.saveRecord(volvoV50, completionHandler: { (record, error) -> Void in
-//            if (error != nil) {
-//                print(error)
-//            } else {
-//                NSLog("Saved in cloudkit")
-//                
-//            }
-//        })
+        
+//        tableView.rowHeight = UITableViewAutomaticDimension
+//        tableView.estimatedRowHeight = 10
+        //tableView.registerNib(UINib(nibName: "SessionTableCell", bundle: nil), forCellReuseIdentifier: "sessionCell")
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -300,9 +276,7 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             do {
                 try self.fetchedResultsController.performFetch()
-                
                 self.tableView.reloadData()
-
             } catch {
                 fatalError("Failed to initialize FetchedResultsController: \(error)")
             }
@@ -326,10 +300,22 @@ class SessionsTableController: CoreDataTableViewController, UIDocumentPickerDele
         print("Trying to find the subscription...")
 
     }
-    
 
-    
-    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            self.performSegueWithIdentifier("sessionSegue", sender: tableView)
+        
+    }
+}
 
-  
+extension SessionsTableController: UIDocumentPickerDelegate {
+    //Mark: - UIDocumentPickerDelegate
+    func documentPicker(controller: UIDocumentPickerViewController, didPickDocumentAtURL url: NSURL) {
+        let filename = url.URLByDeletingPathExtension?.lastPathComponent
+        
+        let items = RISFileParser.readFile(url.path!)
+        
+        //test read
+        
+        self.dataController?.saveResults(filename!, results: items)
+    }
 }

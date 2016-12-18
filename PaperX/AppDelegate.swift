@@ -61,16 +61,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func doesDocumentsDirectoryExist() -> Bool {
         var isDirectory = false as ObjCBool
-        documentsDirectory = containerURL!.path!.stringByAppendingString("/Documents")
         
-        if let directory = documentsDirectory {
-            if fileManager.fileExistsAtPath(directory,
-                                            isDirectory: &isDirectory) {
-                if isDirectory {
-                    return true
+        if let cUrl = containerURL {
+            documentsDirectory = cUrl.path!.stringByAppendingString("/Documents")
+            
+            if let directory = documentsDirectory {
+                if fileManager.fileExistsAtPath(directory,
+                                                isDirectory: &isDirectory) {
+                    if isDirectory {
+                        return true
+                    }
                 }
             }
         }
+     
         return false
     }
     
@@ -117,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.setupCloud()
         
-        //self.testData()
+        self.testData()
         
         if application.isRegisteredForRemoteNotifications() == false {
             LOG.debug("Not registered for push notifications. Registering now...")
